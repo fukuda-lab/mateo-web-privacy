@@ -76,7 +76,7 @@ manager_params.log_path = Path("./datadir/openwpm.log")
 with TaskManager(
     manager_params,
     browser_params,
-    SQLiteStorageProvider(Path("./datadir/jellybeans_leakage_15.sqlite")),
+    SQLiteStorageProvider(Path("./datadir/jellybeans_leakage_15_crawl.sqlite")),
     None,
 ) as manager:
     # Visits the sites
