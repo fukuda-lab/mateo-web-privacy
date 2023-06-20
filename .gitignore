@@ -1,6 +1,12 @@
 # Large files
-openwpm/datadir/tranco_100_wrong.sqlite
-openwpm/datadir/tranco_100.sqlite
+openwpm/datadir/*
+openwpm/oba/datadir/*
+# !openwpm/datadir/browser_profiles
+# openwpm/datadir/browser_profiles/*
+# !openwpm/datadir/screenshots
+# openwpm/datadir/screenshots/*
+# !openwpm/datadir/sources
+# openwpm/datadir/sources/*
 
 # Byte-compiled / optimized / DLL files
 __pycache__/

@@ -72,7 +72,8 @@ def jellybeans_crawl(num_runs):
             manager_params,
             browser_params,
             # Not sure if this will work correctly, but ideally this should save the .sqlite file to the experiment directory
-            SQLiteStorageProvider(Path("./datadir/jellybeans_10_crawls.sqlite")),
+            SQLiteStorageProvider(Path("./datadir/[vpn_czech]10_crawls_results.sqlite")),
+            # SQLiteStorageProvider(Path("./datadir/[vpn_chile]jellybeans_10_crawls.sqlite")),
             None,
         ) as manager:
             # Visits the sites
@@ -98,8 +99,17 @@ def jellybeans_crawl(num_runs):
 
                 # Run commands across all browsers (simple parallelization)
                 manager.execute_command_sequence(command_sequence)
-    elapsed_time = time.time() - start_time
-    minutes, seconds = divmod(elapsed_time, 60)
-    print(f"Finished run {i} after {int(minutes)}:{seconds:.2f} minutes")
+        elapsed_time = time.time() - start_time
+        minutes, seconds = divmod(elapsed_time, 60)
+        print(f"Finished run {i} after {int(minutes)}:{seconds:.2f} minutes")
 
-jellybeans_crawl(10)
+try:
+    jellybeans_crawl(10)
+    # Write to file that crawling was successful
+    with open("vpn_crawling_ok.txt", "w") as f:
+        f.write("Hello, World!")
+
+except:
+    # Write to file that crawling was unsuccessful
+    with open("vpn_crawling_error.txt", "w") as f:
+        f.write("Hello, World!")

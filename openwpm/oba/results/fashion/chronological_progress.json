@@ -1,0 +1,820 @@
+{
+  "dynamic_ads": {
+    "http://bbc.com": [
+      {
+        "26": [
+          "https://www.bbc.com/storyworks/specials/in-pursuit-of-wellness/%3Futm_source%3DHouse%26utm_medium%3DTraffic-Driver-Billboard%26utm_campaign%3DIn_Pursuit_Of_Wellness%26utm_content%3DHub",
+          "http://www.visittheusa.com%3Futm_source%3Dbbc%26utm_medium%3Dtd%26utm_campaign%3Dink%26utm_content%3Dtiwiausvi%26utm_term%3Dprospec%26fy23_multi_gt_tiwia_usvi_dis_pd"
+        ]
+      },
+      {
+        "31": [
+          "https://www.bbc.com/storyworks/wired-differently/wired-differently-homepage%3Futm_source%3DHouse%26utm_medium%3DTraffic-Driver-Billboard%26utm_campaign%3DWired-Differently%26utm_content%3DHub",
+          "http://www.visittheusa.com%3Futm_source%3Dbbc%26utm_medium%3Dtd%26utm_campaign%3Dink%26utm_content%3Dtiwiabre%26utm_term%3Dprospec%26fy23_multi_gt_tiwia_co_dis_pd"
+        ]
+      },
+      {
+        "86": [
+          "https://www.eastspring.co.jp?utm_source=programmatic&utm_medium=smartlab&utm_campaign=investment-ideas"
+        ]
+      },
+      {
+        "125": [
+          "https://www.eastspring.co.jp?utm_source=programmatic&utm_medium=smartlab&utm_campaign=investment-ideas",
+          "http://www.bbc.com/storyworks/transforming-cities/transforming-cities-home/%3Futm_source%3DHouse%26utm_medium%3DTraffic-Driver-MPU%26utm_campaign%3DTransforming_Cities%26utm_content%3DHub"
+        ]
+      },
+      {
+        "146": [
+          "https://www.eastspring.co.jp?utm_source=programmatic&utm_medium=smartlab&utm_campaign=investment-ideas",
+          "https://www.bbc.com/storyworks/travel/unforgettable-maldives/how-the-maldives-takes-luxury-to-new-heights%3Futm_source%3DBBC-ROS%26utm_medium%3DTraffic-Driver-MPU%26utm_campaign%3Dunforgettable-maldives%26utm_content%3DA2-v2"
+        ]
+      },
+      {
+        "168": [
+          "https://www.eastspring.co.jp?utm_source=programmatic&utm_medium=smartlab&utm_campaign=investment-ideas",
+          "https://www.bbc.com/storyworks/travel/unforgettable-maldives/the-maldives-redefining-business-tourism%3Futm_source%3DBBC-ROS%26utm_medium%3DTraffic-Driver-MPU%26utm_campaign%3Dunforgettable-maldives%26utm_content%3DA3-v1"
+        ]
+      },
+      {
+        "171": [
+          "https://www.eastspring.co.jp?utm_source=programmatic&utm_medium=smartlab&utm_campaign=investment-ideas",
+          "https://cloud.email.bbc.com/RoyalWatch_Newsletter_SignUp%3F%26at_bbc_team%3Dstudios%26at_medium%3Ddisplay%26at_objective%3Dacquisition%26at_ptr_type%3D%26at_ptr_name%3Dbbc.com%26at_format%3Dbanner%26at_link_origin%3Dhouse%26at_campaign%3Droyalwatch%26at_campaign_id%3D%26at_adset_name%3D%26at_adset_id%3D%26at_creation%3D%26at_creative_id%3D%26at_campaign_type%3Downed"
+        ]
+      },
+      {
+        "172": [
+          "https://www.eastspring.co.jp?utm_source=programmatic&utm_medium=smartlab&utm_campaign=investment-ideas",
+          "http://www.visittheusa.com%3Futm_source%3Dbbc%26utm_medium%3Dtd%26utm_campaign%3Dink%26utm_content%3Dtiwiasv%26utm_term%3Dprospec%26fy23_multi_gt_tiwia_ca_dis_pd"
+        ]
+      },
+      {
+        "214": [
+          "https://www.bbc.com/storyworks/specials/think-on-japanese/reimagining-automation/%3Futm_source%3DBBC-ROS%26utm_medium%3DTraffic-Driver-Billboard%26utm_campaign%3Dlenovo-thinkon-japanese",
+          "http://www.visittheusa.com%3Futm_source%3Dbbc%26utm_medium%3Dtd%26utm_campaign%3Dink%26utm_content%3Dtiwiasav%26utm_term%3Dprospec%26fy23_multi_gt_tiwia_ga_dis_pd"
+        ]
+      },
+      {
+        "258": [
+          "https://www.eastspring.co.jp?utm_source=programmatic&utm_medium=smartlab&utm_campaign=investment-ideas"
+        ]
+      },
+      {
+        "291": [
+          "https://www.lenovo.com/thinkon/intel%3Fcid%3Dall:display:t55j34"
+        ]
+      },
+      {
+        "331": [
+          "https://www.eastspring.co.jp?utm_source=programmatic&utm_medium=smartlab&utm_campaign=investment-ideas"
+        ]
+      },
+      {
+        "398": [
+          "https://www.eastspring.co.jp?utm_source=programmatic&utm_medium=smartlab&utm_campaign=investment-ideas",
+          "http://www.visittheusa.com%3Futm_source%3Dbbc%26utm_medium%3Dtd%26utm_campaign%3Dink%26utm_content%3Dtiwiaid%26utm_term%3Dprospec%26fy23_multi_gt_tiwia_id_dis_pd"
+        ]
+      },
+      {
+        "415": [
+          "https://www.bbc.com/storyworks/specials/think-on-japanese/turning-the-tide-on-maritime-shipping/%3Futm_source%3DBBC-ROS%26utm_medium%3DTraffic-Driver-Billboard%26utm_campaign%3Dlenovo-thinkon-japanese",
+          "http://www.visittheusa.com%3Futm_source%3Dbbc%26utm_medium%3Dtd%26utm_campaign%3Dink%26utm_content%3Dtiwiasv%26utm_term%3Dprospec%26fy23_multi_gt_tiwia_ca_dis_pd"
+        ]
+      },
+      {
+        "418": [
+          "http://www.visittheusa.com%3Futm_source%3Dbbc%26utm_medium%3Dtd%26utm_campaign%3Dink%26utm_content%3Dtiwiausvi%26utm_term%3Dprospec%26fy23_multi_gt_tiwia_usvi_dis_pd"
+        ]
+      },
+      {
+        "434": [
+          "http://www.visittheusa.com%3Futm_source%3Dbbc%26utm_medium%3Dtd%26utm_campaign%3Dink%26utm_content%3Dtiwiausvi%26utm_term%3Dprospec%26fy23_multi_gt_tiwia_usvi_dis_pd",
+          "http://www.visittheusa.com%3Futm_source%3Dbbc%26utm_medium%3Dtd%26utm_campaign%3Dink%26utm_content%3Dtiwiasav%26utm_term%3Dprospec%26fy23_multi_gt_tiwia_ga_dis_pd"
+        ]
+      },
+      {
+        "435": [
+          "http://www.visittheusa.com%3Futm_source%3Dbbc%26utm_medium%3Dtd%26utm_campaign%3Dink%26utm_content%3Dtiwiausvi%26utm_term%3Dprospec%26fy23_multi_gt_tiwia_usvi_dis_pd",
+          "http://www.visittheusa.com%3Futm_source%3Dbbc%26utm_medium%3Dtd%26utm_campaign%3Dink%26utm_content%3Dtiwiasav%26utm_term%3Dprospec%26fy23_multi_gt_tiwia_ga_dis_pd"
+        ]
+      },
+      {
+        "561": [
+          "https://www.eastspring.co.jp?utm_source=programmatic&utm_medium=smartlab&utm_campaign=investment-ideas"
+        ]
+      },
+      {
+        "570": [
+          "https://www.bbc.com/storyworks/think-on/turning-the-tide%3Futm_source%3DBBC-ROS%26utm_medium%3DTraffic-Driver-Billboard%26utm_campaign%3Dlenovo-thinkon",
+          "http://www.visittheusa.com%3Futm_source%3Dbbc%26utm_medium%3Dtd%26utm_campaign%3Dink%26utm_content%3Dtiwiabre%26utm_term%3Dprospec%26fy23_multi_gt_tiwia_co_dis_pd"
+        ]
+      },
+      {
+        "587": [
+          "http://www.visittheusa.com%3Futm_source%3Dbbc%26utm_medium%3Dtd%26utm_campaign%3Dink%26utm_content%3Dtiwiasav%26utm_term%3Dprospec%26fy23_multi_gt_tiwia_ga_dis_pd"
+        ]
+      },
+      {
+        "623": [
+          "https://www.lenovo.com/thinkon/intel%3Fcid%3Dall:display:e09lrc",
+          "http://www.visittheusa.com%3Futm_source%3Dbbc%26utm_medium%3Dtd%26utm_campaign%3Dink%26utm_content%3Dtiwiabre%26utm_term%3Dprospec%26fy23_multi_gt_tiwia_co_dis_pd"
+        ]
+      },
+      {
+        "629": [
+          "https://www.lenovo.com/thinkon/intel%3Fcid%3Dall:display:e09lrc"
+        ]
+      },
+      {
+        "634": [
+          "https://www.lenovo.com/thinkon/intel%3Fcid%3Dall:display:e09lrc",
+          "http://www.visittheusa.com%3Futm_source%3Dbbc%26utm_medium%3Dtd%26utm_campaign%3Dink%26utm_content%3Dtiwiaid%26utm_term%3Dprospec%26fy23_multi_gt_tiwia_id_dis_pd"
+        ]
+      },
+      {
+        "673": [
+          "http://www.visittheusa.com%3Futm_source%3Dbbc%26utm_medium%3Dtd%26utm_campaign%3Dink%26utm_content%3Dtiwiausvi%26utm_term%3Dprospec%26fy23_multi_gt_tiwia_usvi_dis_pd",
+          "http://www.visittheusa.com%3Futm_source%3Dbbc%26utm_medium%3Dtd%26utm_campaign%3Dink%26utm_content%3Dtiwiaid%26utm_term%3Dprospec%26fy23_multi_gt_tiwia_id_dis_pd"
+        ]
+      },
+      {
+        "873": [
+          "https://www.eastspring.co.jp?utm_source=programmatic&utm_medium=smartlab&utm_campaign=investment-ideas"
+        ]
+      },
+      {
+        "900": [
+          "https://www.eastspring.co.jp?utm_source=programmatic&utm_medium=smartlab&utm_campaign=investment-ideas"
+        ]
+      },
+      {
+        "912": [
+          "https://www.eastspring.co.jp?utm_source=programmatic&utm_medium=smartlab&utm_campaign=investment-ideas"
+        ]
+      },
+      {
+        "919": [
+          "https://www.eastspring.co.jp?utm_source=programmatic&utm_medium=smartlab&utm_campaign=investment-ideas"
+        ]
+      },
+      {
+        "1001": [
+          "https://www.bbc.com/storyworks/specials/think-on-japanese/turning-the-tide-on-maritime-shipping/%3Futm_source%3DBBC-ROS%26utm_medium%3DTraffic-Driver-Billboard%26utm_campaign%3Dlenovo-thinkon-japanese"
+        ]
+      },
+      {
+        "1048": [
+          "https://www.gbm.hsbc.com/en-gb/feed/market-and-regulatory-insights/China-from-recovery-to-opportunity%3Fcid%3DHBHK:SC:ASIACREDITGOOGLE:D3:GBM:L10:GO:PRP:9:XBR:1:0623:005:AC2023",
+          "http://www.visittheusa.com%3Futm_source%3Dbbc%26utm_medium%3Dtd%26utm_campaign%3Dink%26utm_content%3Dtiwiasav%26utm_term%3Dprospec%26fy23_multi_gt_tiwia_ga_dis_pd"
+        ]
+      },
+      {
+        "1058": [
+          "https://www.bbc.com/storyworks/specials/think-on-japanese/turning-the-tide-on-maritime-shipping/%3Futm_source%3DBBC-ROS%26utm_medium%3DTraffic-Driver-Billboard%26utm_campaign%3Dlenovo-thinkon-japanese",
+          "http://www.visittheusa.com%3Futm_source%3Dbbc%26utm_medium%3Dtd%26utm_campaign%3Dink%26utm_content%3Dtiwiaid%26utm_term%3Dprospec%26fy23_multi_gt_tiwia_id_dis_pd"
+        ]
+      },
+      {
+        "1150": [
+          "https://www.bbc.com/storyworks/think-on/turning-the-tide-on-maritime-shipping%3Futm_source%3DBBC-ROS%26utm_medium%3DTraffic-Driver-Billboard%26utm_campaign%3Dlenovo-thinkon",
+          "http://www.visittheusa.com%3Futm_source%3Dbbc%26utm_medium%3Dtd%26utm_campaign%3Dink%26utm_content%3Dtiwiabre%26utm_term%3Dprospec%26fy23_multi_gt_tiwia_co_dis_pd"
+        ]
+      },
+      {
+        "1186": [
+          "https://www.gbm.hsbc.com/en-gb/feed/market-and-regulatory-insights/China-from-recovery-to-opportunity%3Fcid%3DHBHK:SC:ASIACREDITGOOGLE:D3:GBM:L10:GO:PRP:9:XBR:1:0623:005:AC2023"
+        ]
+      },
+      {
+        "1263": [
+          "https://www.gbm.hsbc.com/en-gb/feed/market-and-regulatory-insights/China-from-recovery-to-opportunity%3Fcid%3DHBHK:SC:ASIACREDITGOOGLE:D3:GBM:L10:GO:PRP:9:XBR:1:0623:005:AC2023"
+        ]
+      }
+    ],
+    "http://usatoday.com": [
+      {
+        "1": []
+      },
+      {
+        "5": []
+      },
+      {
+        "32": []
+      },
+      {
+        "43": []
+      },
+      {
+        "73": []
+      },
+      {
+        "195": []
+      },
+      {
+        "203": []
+      },
+      {
+        "230": [
+          "https://www.indycar.com",
+          "https://www.indycar.com"
+        ]
+      },
+      {
+        "427": []
+      },
+      {
+        "452": []
+      },
+      {
+        "476": []
+      },
+      {
+        "527": []
+      },
+      {
+        "528": []
+      },
+      {
+        "563": []
+      },
+      {
+        "579": []
+      },
+      {
+        "586": []
+      },
+      {
+        "637": [
+          "https://adclick.g.doubleclick.net/pcs/click%3Fxai%3DAKAOjstIQd--fSy_2aVdKMDn-pAGgtXaz-yyDRuc1UvXmMyBI0TWAxViKWnbPFd8RoF3QTK5cbILyF_wCs0J0hkWhc92lRGTP7WrZ4oZ6ptfj6sD2ULtc2PnDeY3eihAa2WdiCzXX6ojfgd1Z4shy2rCXjPKRe4bEI58MIozVd7fSrwhQqdPpEGzw074PmrHsv2lYDLB3mVZY1CcC3D4octzwguntE_3b5OsqFSuY56grTnzyDj2LhHIPkHE4-rdXR1we3wXi_nNpgyAVAHPoNHdxeZ9uQ49ol7jpwsUPO6AfnEA-_9bqR1x9q9C13NbVHGC76RGxZ5JwHmngMAedYu1rtjfZA%26sai%3DAMfl-YTBLxtQFhhuh_xtBIRz1-PoX6Q45sfK0EvljI1PfaTh2LjPPN1zobRt-PFIJ_wpF6Ee9apD8WwSKfHcqi5UQjk_aGXne5uJPcuykso0wQvbcqtuBZzh8onYms8wZ2Cw-f5VtVRnRqCmFTH7Mhk60A%26sig%3DCg0ArKJSzFEcE0k8JEH0EAE%26fbs_aeid%3D%5Bgw_fbsaeid%5D%26urlfix%3D1%26adurl%3Dhttps://www.medicare.gov/about-us/prescription-drug-law%253Futm_source%253Dusatoday%2526utm_medium%253Ddisplay%2526utm_campaign%253D23_recvax_v1%2526utm_content%253Dcraftsman"
+        ]
+      },
+      {
+        "643": [
+          "https://asana.com/ja/japan%3Futm_source%3Ddbm%26utm_medium%3Dpd_disp_acq%26utm_content%3DGoalProductivity%26dclid%3D%25edclid"
+        ]
+      },
+      {
+        "674": []
+      },
+      {
+        "690": [
+          "https://asana.com/ja/case-study/figma%3Futm_source%3Ddbm%26utm_medium%3Dpd_disp_acq%26utm_content%3DFigma%26dclid%3D%25edclid"
+        ]
+      },
+      {
+        "701": []
+      },
+      {
+        "724": []
+      },
+      {
+        "745": []
+      },
+      {
+        "767": []
+      },
+      {
+        "772": []
+      },
+      {
+        "822": [
+          "https://www.sbs.ox.ac.uk/programmes/mbas/oxford-executive-mba%3Futm_source%3DDV360%26utm_medium%3Ddisplay%26utm_campaign%3DEMBA_DV360Jan2022%26utm_term%3DInMarket%26dclid%3D%25edclid"
+        ]
+      },
+      {
+        "823": []
+      },
+      {
+        "830": []
+      },
+      {
+        "859": []
+      },
+      {
+        "860": [
+          "https://www.sbs.ox.ac.uk/programmes/mbas/oxford-executive-mba%3Fdclid%3D%25edclid"
+        ]
+      },
+      {
+        "863": []
+      },
+      {
+        "883": []
+      },
+      {
+        "913": [
+          "https://asana.com/ja/case-study/figma%3Futm_source%3Ddbm%26utm_medium%3Dpd_disp_acq%26utm_content%3DFigma%26dclid%3D%25edclid"
+        ]
+      },
+      {
+        "918": [
+          "https://asana.com/ja/case-study/figma%3Futm_source%3Ddbm%26utm_medium%3Dpd_disp_acq%26utm_content%3DFigma%26dclid%3D%25edclid"
+        ]
+      },
+      {
+        "943": []
+      },
+      {
+        "949": []
+      },
+      {
+        "978": []
+      },
+      {
+        "979": []
+      },
+      {
+        "988": []
+      },
+      {
+        "1002": []
+      },
+      {
+        "1011": []
+      },
+      {
+        "1030": []
+      },
+      {
+        "1123": []
+      },
+      {
+        "1151": []
+      },
+      {
+        "1178": [
+          "https://adclick.g.doubleclick.net/pcs/click%3Fxai%3DAKAOjsvTljeUZDO_F49hkU2My_2y30T_7ZZmjAwEzDdVyJVXtSHdr_ZP5bcu536uKw5WyuHTk9saOdOYjBReBpjSmJmA282fgk_40TqnjJL4jGYQqRGBCYySiJUPFpfMGf5CTtEeA4ixtqNCAyIxPH3JROI7wGNEzOWDEjFEu2lgC7IcGRPrVPH5lIdxQyHwoskg2U5GWPogEc2GKeyH3pbt9xgcfvJycWl_Do9yyfg2slA8veQoAqDiWQnHL9G2JjpCT7zWxwCLY2YT312AI2h0TQLUICqT5na52zklnidv713YChvFWblt0y-Dh_TcQZDwKGBRmHBXtP89HGMoNRn6EN0CkA%26sai%3DAMfl-YTsfBxA7ouOzx8LUReJ96sERIzVbLLqjvcoFGDng01CIJLZgn0h3tuXIyDCXDC8x8l-uWNhT0e5eo-spRIBhmrqfC_K9pggKGmugPdGi1pHluA7cKHWdfjLvV_ErMr6vqmpWR1QRfvp0eP0dxhaOg%26sig%3DCg0ArKJSzD8riKqBcAEoEAE%26fbs_aeid%3D%5Bgw_fbsaeid%5D%26urlfix%3D1%26adurl%3Dhttps://www.medicare.gov/about-us/prescription-drug-law%253Futm_source%253Dusatoday%2526utm_medium%253Ddisplay%2526utm_campaign%253D23_recvax_v1%2526utm_content%253Dcraftsman"
+        ]
+      },
+      {
+        "1245": []
+      },
+      {
+        "1265": []
+      }
+    ],
+    "http://washingtonpost.com": [
+      {
+        "13": []
+      },
+      {
+        "85": []
+      },
+      {
+        "90": []
+      },
+      {
+        "169": [
+          "https://www.washingtonpost.com/newsletters/well-being/"
+        ]
+      },
+      {
+        "202": [
+          "https://mikiko-goto.com/%3Fgclid%3DEAIaIQobChMI9tXhtOWegAMV5kDCBR20rQNGEAEYASAAEgIRgvD_BwE"
+        ]
+      },
+      {
+        "375": []
+      },
+      {
+        "385": [
+          "https://note.com/tane_sosyou_/n/nafbd5150c8e3"
+        ]
+      },
+      {
+        "394": []
+      },
+      {
+        "454": []
+      },
+      {
+        "483": []
+      },
+      {
+        "569": []
+      },
+      {
+        "588": []
+      },
+      {
+        "667": []
+      },
+      {
+        "691": []
+      },
+      {
+        "692": []
+      },
+      {
+        "704": []
+      },
+      {
+        "751": []
+      },
+      {
+        "783": []
+      },
+      {
+        "839": []
+      },
+      {
+        "864": []
+      },
+      {
+        "876": []
+      },
+      {
+        "891": []
+      },
+      {
+        "914": []
+      },
+      {
+        "987": []
+      },
+      {
+        "1018": []
+      },
+      {
+        "1062": []
+      },
+      {
+        "1102": []
+      },
+      {
+        "1115": []
+      },
+      {
+        "1124": []
+      },
+      {
+        "1167": []
+      },
+      {
+        "1203": []
+      },
+      {
+        "1225": []
+      },
+      {
+        "1266": []
+      }
+    ],
+    "http://cnn.com": [
+      {
+        "33": [
+          "https://edition.cnn.com/sport/"
+        ]
+      },
+      {
+        "58": []
+      },
+      {
+        "79": [
+          "https://edition.cnn.com/sport/"
+        ]
+      },
+      {
+        "82": []
+      },
+      {
+        "102": [
+          "https://www.eastspring.co.jp?utm_source=programmatic&utm_medium=smartlab&utm_campaign=investment-ideas"
+        ]
+      },
+      {
+        "124": [
+          "https://edition.cnn.com/style"
+        ]
+      },
+      {
+        "139": [
+          "https://www.eastspring.co.jp?utm_source=programmatic&utm_medium=smartlab&utm_campaign=investment-ideas"
+        ]
+      },
+      {
+        "210": [
+          "https://edition.cnn.com/business"
+        ]
+      },
+      {
+        "262": [
+          "https://www.eastspring.co.jp?utm_source=programmatic&utm_medium=smartlab&utm_campaign=investment-ideas"
+        ]
+      },
+      {
+        "269": [
+          "https://www.eastspring.co.jp?utm_source=programmatic&utm_medium=smartlab&utm_campaign=investment-ideas"
+        ]
+      },
+      {
+        "290": [
+          "https://www.eastspring.co.jp?utm_source=programmatic&utm_medium=smartlab&utm_campaign=investment-ideas"
+        ]
+      },
+      {
+        "316": [
+          "https://www.eastspring.co.jp?utm_source=programmatic&utm_medium=smartlab&utm_campaign=investment-ideas"
+        ]
+      },
+      {
+        "356": [
+          "https://www.eastspring.co.jp?utm_source=programmatic&utm_medium=smartlab&utm_campaign=investment-ideas"
+        ]
+      },
+      {
+        "439": [
+          "https://www.eastspring.co.jp?utm_source=programmatic&utm_medium=smartlab&utm_campaign=investment-ideas"
+        ]
+      },
+      {
+        "451": [
+          "https://www.eastspring.co.jp?utm_source=programmatic&utm_medium=smartlab&utm_campaign=investment-ideas"
+        ]
+      },
+      {
+        "453": [
+          "https://www.eastspring.co.jp?utm_source=programmatic&utm_medium=smartlab&utm_campaign=investment-ideas"
+        ]
+      },
+      {
+        "473": [
+          "https://www.eastspring.co.jp?utm_source=programmatic&utm_medium=smartlab&utm_campaign=investment-ideas"
+        ]
+      },
+      {
+        "479": [
+          "https://www.eastspring.co.jp?utm_source=programmatic&utm_medium=smartlab&utm_campaign=investment-ideas"
+        ]
+      },
+      {
+        "490": [
+          "https://www.eastspring.co.jp?utm_source=programmatic&utm_medium=smartlab&utm_campaign=investment-ideas"
+        ]
+      },
+      {
+        "578": []
+      },
+      {
+        "681": [
+          "https://edition.cnn.com/style"
+        ]
+      },
+      {
+        "708": []
+      },
+      {
+        "713": [
+          "https://www.dominos.jp/topics/230721_555_s%3Futm_source%3Ddv360%26utm_medium%3Ddisplay%26utm_campaign%3Dgo_go_promo%26utm_term%3Ddemo_18plus%26utm_content%3Ddelivery_50_off_any_pizza728x90"
+        ]
+      },
+      {
+        "742": [
+          "https://www.dominos.jp/topics/230721_555_s%3Futm_source%3Ddv360%26utm_medium%3Ddisplay%26utm_campaign%3Dgo_go_promo%26utm_term%3Ddemo_18plus%26utm_content%3Ddelivery_50_off_any_pizza728x90"
+        ]
+      },
+      {
+        "796": []
+      },
+      {
+        "802": [
+          "https://www.eastspring.co.jp?utm_source=programmatic&utm_medium=smartlab&utm_campaign=investment-ideas"
+        ]
+      },
+      {
+        "820": [
+          "https://www.eastspring.co.jp?utm_source=programmatic&utm_medium=smartlab&utm_campaign=investment-ideas"
+        ]
+      },
+      {
+        "835": [
+          "https://edition.cnn.com/sport/"
+        ]
+      },
+      {
+        "894": [
+          "https://www.eastspring.co.jp?utm_source=programmatic&utm_medium=smartlab&utm_campaign=investment-ideas"
+        ]
+      },
+      {
+        "911": [
+          "https://www.eastspring.co.jp?utm_source=programmatic&utm_medium=smartlab&utm_campaign=investment-ideas"
+        ]
+      },
+      {
+        "956": [
+          "https://edition.cnn.com/sport/"
+        ]
+      },
+      {
+        "990": [
+          "https://www.eastspring.co.jp?utm_source=programmatic&utm_medium=smartlab&utm_campaign=investment-ideas"
+        ]
+      },
+      {
+        "1125": []
+      },
+      {
+        "1180": [
+          "https://edition.cnn.com/style"
+        ]
+      },
+      {
+        "1241": [
+          "https://www.gbm.hsbc.com/en-gb/feed/market-and-regulatory-insights/China-from-recovery-to-opportunity%3Fcid%3DHBHK:SC:ASIACREDITGOOGLE:D3:GBM:L10:GO:PRP:9:XBR:1:0623:005:AC2023"
+        ]
+      },
+      {
+        "1256": []
+      },
+      {
+        "1270": [
+          "https://www.gbm.hsbc.com/en-gb/feed/market-and-regulatory-insights/China-from-recovery-to-opportunity%3Fcid%3DHBHK:SC:ASIACREDITGOOGLE:D3:GBM:L10:GO:PRP:9:XBR:1:0623:005:AC2023"
+        ]
+      }
+    ],
+    "http://newyorker.com": [
+      {
+        "42": [
+          "https://nytedu.com/gap-year/nyc/%3Futm_source%3Ddv360%26utm_medium%3Ddisplay%26utm_campaign%3Ddv360_display_gy_img_fy23_global%26cid%3D7011G000000gteIQAQ"
+        ]
+      },
+      {
+        "64": []
+      },
+      {
+        "103": [
+          "https://asana.com/ja/case-study/figma%3Futm_source%3Ddbm%26utm_medium%3Dpd_disp_acq%26utm_content%3DFigma%26dclid%3D%25edclid"
+        ]
+      },
+      {
+        "129": [
+          "https://asana.com/ja/japan%3Futm_source%3Ddbm%26utm_medium%3Dpd_disp_acq%26utm_content%3DDXProductivity%26dclid%3D%25edclid"
+        ]
+      },
+      {
+        "165": []
+      },
+      {
+        "173": [
+          "https://asana.com/ja/japan%3Futm_source%3Ddbm%26utm_medium%3Dpd_disp_acq%26utm_content%3DDXProductivity%26dclid%3D%25edclid"
+        ]
+      },
+      {
+        "215": []
+      },
+      {
+        "248": [
+          "https://nytedu.com/gap-year/nyc/%3Futm_source%3Ddv360%26utm_medium%3Ddisplay%26utm_campaign%3Ddv360_display_gy_img_fy23_global%26cid%3D7011G000000gteIQAQ"
+        ]
+      },
+      {
+        "368": [
+          "https://nytedu.com/gap-year/nyc/%3Futm_source%3Ddv360%26utm_medium%3Ddisplay%26utm_campaign%3Ddv360_display_gy_img_fy23_global%26cid%3D7011G000000gteIQAQ"
+        ]
+      },
+      {
+        "399": [
+          "https://asana.com/ja/japan%3Futm_source%3Ddbm%26utm_medium%3Dpd_disp_acq%26utm_content%3DDXProductivity%26dclid%3D%25edclid"
+        ]
+      },
+      {
+        "411": [
+          "https://asana.com/ja/japan%3Futm_source%3Ddbm%26utm_medium%3Dpd_disp_acq%26utm_content%3DDXProductivity%26dclid%3D%25edclid"
+        ]
+      },
+      {
+        "432": [
+          "https://asana.com/ja/case-study/smarthr%3Futm_source%3Ddbm%26utm_medium%3Dpd_disp_acq%26utm_content%3DSmartHR%26dclid%3D%25edclid"
+        ]
+      },
+      {
+        "491": []
+      },
+      {
+        "520": []
+      },
+      {
+        "599": [
+          "https://nytedu.com/gap-year/nyc/%3Futm_source%3Ddv360%26utm_medium%3Ddisplay%26utm_campaign%3Ddv360_display_gy_img_fy23_global%26cid%3D7011G000000gteIQAQ"
+        ]
+      },
+      {
+        "646": [
+          "https://nytedu.com/gap-year/nyc/%3Futm_source%3Ddv360%26utm_medium%3Ddisplay%26utm_campaign%3Ddv360_display_gy_img_fy23_global%26cid%3D7011G000000gteIQAQ"
+        ]
+      },
+      {
+        "657": [
+          "https://nytedu.com/gap-year/nyc/%3Futm_source%3Ddv360%26utm_medium%3Ddisplay%26utm_campaign%3Ddv360_display_gy_img_fy23_global%26cid%3D7011G000000gteIQAQ"
+        ]
+      },
+      {
+        "721": [
+          "https://nytedu.com/gap-year/nyc/%3Futm_source%3Ddv360%26utm_medium%3Ddisplay%26utm_campaign%3Ddv360_display_gy_img_fy23_global%26cid%3D7011G000000gteIQAQ"
+        ]
+      },
+      {
+        "732": [
+          "https://nytedu.com/gap-year/nyc/%3Futm_source%3Ddv360%26utm_medium%3Ddisplay%26utm_campaign%3Ddv360_display_gy_img_fy23_global%26cid%3D7011G000000gteIQAQ"
+        ]
+      },
+      {
+        "736": [
+          "https://nytedu.com/gap-year/nyc/%3Futm_source%3Ddv360%26utm_medium%3Ddisplay%26utm_campaign%3Ddv360_display_gy_img_fy23_global%26cid%3D7011G000000gteIQAQ"
+        ]
+      },
+      {
+        "741": [
+          "https://asana.com/ja/japan%3Futm_source%3Ddbm%26utm_medium%3Dpd_disp_acq%26utm_content%3DDXProductivity%26dclid%3D%25edclid"
+        ]
+      },
+      {
+        "747": [
+          "https://nytedu.com/gap-year/nyc/%3Futm_source%3Ddv360%26utm_medium%3Ddisplay%26utm_campaign%3Ddv360_display_gy_img_fy23_global%26cid%3D7011G000000gteIQAQ"
+        ]
+      },
+      {
+        "756": []
+      },
+      {
+        "764": []
+      },
+      {
+        "809": [
+          "https://nytedu.com/gap-year/nyc/%3Futm_source%3Ddv360%26utm_medium%3Ddisplay%26utm_campaign%3Ddv360_display_gy_img_fy23_global%26cid%3D7011G000000gteIQAQ"
+        ]
+      },
+      {
+        "926": []
+      },
+      {
+        "941": [
+          "https://nytedu.com/gap-year/nyc/%3Futm_source%3Ddv360%26utm_medium%3Ddisplay%26utm_campaign%3Ddv360_display_gy_img_fy23_global%26cid%3D7011G000000gteIQAQ"
+        ]
+      },
+      {
+        "1051": [
+          "https://nytedu.com/gap-year/nyc/%3Futm_source%3Ddv360%26utm_medium%3Ddisplay%26utm_campaign%3Ddv360_display_gy_img_fy23_global%26cid%3D7011G000000gteIQAQ"
+        ]
+      },
+      {
+        "1087": [
+          "https://asana.com/ja/japan%3Futm_source%3Ddbm%26utm_medium%3Dpd_disp_acq%26utm_content%3DGoalProductivity%26dclid%3D%25edclid"
+        ]
+      },
+      {
+        "1093": [
+          "https://checkout.soundcloud.com/artist%3Fref%3Dt457%26utm_source%3DDV360%26utm_medium%3Dpaid%26utm_campaign%3DFY23Q2NextProAcqNonPromo_NextWav_DV361%26utm_content%3DACQ_ArmaniWhiteV2_DV360%26dclid%3D%25edclid"
+        ]
+      },
+      {
+        "1154": [
+          "https://nytedu.com/gap-year/nyc/%3Futm_source%3Ddv360%26utm_medium%3Ddisplay%26utm_campaign%3Ddv360_display_gy_img_fy23_global%26cid%3D7011G000000gteIQAQ"
+        ]
+      },
+      {
+        "1174": []
+      },
+      {
+        "1199": [
+          "https://asana.com/ja/japan%3Futm_source%3Ddbm%26utm_medium%3Dpd_disp_acq%26utm_content%3DOvertime%26dclid%3D%25edclid"
+        ]
+      },
+      {
+        "1206": [
+          "https://nytedu.com/gap-year/nyc/%3Futm_source%3Ddv360%26utm_medium%3Ddisplay%26utm_campaign%3Ddv360_display_gy_img_fy23_global%26cid%3D7011G000000gteIQAQ"
+        ]
+      },
+      {
+        "1213": [
+          "https://nytedu.com/gap-year/nyc/%3Futm_source%3Ddv360%26utm_medium%3Ddisplay%26utm_campaign%3Ddv360_display_gy_img_fy23_global%26cid%3D7011G000000gteIQAQ"
+        ]
+      },
+      {
+        "1262": [
+          "https://asana.com/ja/japan%3Futm_source%3Ddbm%26utm_medium%3Dpd_disp_acq%26utm_content%3DGoalProductivity%26dclid%3D%25edclid"
+        ]
+      },
+      {
+        "1264": [
+          "https://asana.com/ja/japan%3Futm_source%3Ddbm%26utm_medium%3Dpd_disp_acq%26utm_content%3DGoalProductivity%26dclid%3D%25edclid"
+        ]
+      },
+      {
+        "1271": [
+          "https://asana.com/ja/japan%3Futm_source%3Ddbm%26utm_medium%3Dpd_disp_acq%26utm_content%3DOvertime%26dclid%3D%25edclid"
+        ]
+      }
+    ]
+  },
+  "static_ads": [
+    "https://app.adjust.com/fa9v5g8",
+    "https://he.net/ip_transit.html%3Fp%3Dwashingtonpost.com%26gclid%3DEAIaIQobChMIr9igg-ecgAMVh0m8Ch079gkvEAEYASAAEgISP_D_BwE",
+    "https://www.bbc.com/news/business-33712313",
+    "https://edition.cnn.com/travel",
+    "https://www.shopify.com/jp/free-trial%3Futm_source%3Ddv360%26utm_medium%3Ddisplay%26utm_campaign%3Dpaid-dv-apac-jp-q2-experimental-prospecting%26utm_content%3Dprospecting-InMkt-Commerce-jp-evergreen-970x250-display%26utm_term%3Dpaid-dv%26cmadid%3D560055013%3Bcmadvertiserid%3D9763438%3Bcmcampaignid%3D30081092%3Bcmplacementid%3D369008785%3Bcmcreativeid%3D193209955%3Bcmsiteid%3D5931658%26dclid%3D%25edclid",
+    "https://www.bbc.com/storyworks/specials/beneath-the-surface/%3Futm_source%3DHouse%26utm_medium%3DLeaderboard%26utm_campaign%3DBeneath_The_Surface%26utm_content%3DHub",
+    "https://www.pediment.com/products/tom-brady-book-greatest-of-all-time-goat-coffee-table-hardcover%3Fownership%3Dclient%26utm_medium%3Dbanner%26utm_source%3Dusa_today_sports%26utm_campaign%3Dtom_brady_book%26variant%3D44644201922852"
+  ]
+}

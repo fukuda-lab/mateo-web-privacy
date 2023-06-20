@@ -448,6 +448,8 @@ class RecursiveDumpPageSourceCommand(BaseCommand):
             else:
                 page_source = dict()
             page_source["doc_url"] = doc_url
+            # TEST
+            # print(webdriver.page_source)
             source = webdriver.page_source
             if type(source) != str:
                 source = str(source, "utf-8")

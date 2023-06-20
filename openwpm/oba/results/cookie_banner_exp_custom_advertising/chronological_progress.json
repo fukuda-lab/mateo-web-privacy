@@ -1,0 +1,526 @@
+{
+  "static_ads": [
+    "https://www.airasia.com/flight/ja/jp/%3Futm_medium%3Ddisplay%26utm_source%26pid%3Ddv360%26utm_campaign%3DGJP_JP_WP%7Ctactical%7CTAT_FUKxTAA_3rd_Round%7C28082023%7C03092023%7Cjp-ja%7CNone%26dclid%3D%25edclid",
+    "https://he.net/ip_transit.html%3Fp%3Dreuters.com%26gclid%3DEAIaIQobChMIuODs0oGEgQMVJseWCh2bjgSoEAEYASAAEgKJjfD_BwE",
+    "https://edition.cnn.com/travel",
+    "https://newsroom.ap.org/editorial-photos-videos/home%3Futm_source%3Dapnews%26utm_medium%3D970x250%2B%25E2%2580%2593%2BPamplona%26utm_campaign%3Daisearch",
+    "https://www.aramco.com/en/campaigns/powered-by-how/how-women-drive-innovation?utm_source=display-Reuters_6407289&utm_medium=display&utm_campaign=JP_Wave2.5_display_inf_30230690&utm_content=pbh-wi&utm_term=371150808_195063855",
+    "https://app.adjust.com/fa9v5g8"
+  ],
+  "dynamic_ads": {
+    "http://reuters.com": [
+      {
+        "12": []
+      },
+      {
+        "24": []
+      },
+      {
+        "28": []
+      },
+      {
+        "30": [
+          "https://adclick.g.doubleclick.net/pcs/click?xai=AKAOjsseClNgR-b6SFpS07afLIRZSPWeFP6jIYDy35HpABdM7C1_oxjknA4N4FUYmp_j-T5eNxjxp1heLi1SLXQWQSJlickZD3Klg4TN1kDQWSU0-fkvHg6P3tQBCKWiy9ZJOz-rtsUKSVS-u-702hbSgaVIYWIo42fpa1TxIoN1-XjU4Wfi3rUM4feIKvYmGLujJaafGsasTcAz3Va3W0Pi7GaK1VL9fFZJcj-qch77pX5gLodGCaNzdofvsXtj39a_dTqJrzoRyCHTAb-OfOrlDaQGtVrCiW0-G-ecmvVqTNU4qu5rzFCJsw8y_x58cUYCzR-L9jQFseDH-TWJRL_gdzkxHM_Tf3Vb5JTxKBMJ0Kb_tLXbbvu5IpsNgHjgvSNoOmFYP2Rvb6mROTw7qRGPSKIUnzKShZdHRiZu5f3xRNOFB3qmyA3a_gWZCTdg-2cBrjSg2ikPwgN4SxKhPqWyWk4DTk4vdC_jL4On9Tge8ODxVG0Dq0SyxeGRODDj-arfwdfCFMQkjR64i99r5GPahJkZRGxVqVsI6Fl2ythWEijL70VF5R7_4yVUqQPvyNpFdeDiEbHgOEc_ffi2w1ECUQky2kWdoTGZE07WvxshHfH080Y5x7q3dpIUYAgY466T4taV5ZxXMAV736ES_qyvl6MsI0-7yJ1S_3ARsQ25SWFfQtJMzmGDMPJKLHDh2U3SX6GEcmL4Sif5V6YgH6q3r6seky1FKKJdCnXFn_jlf57ayWLl8NhA0L7ss0VPjZ6lfS-wtzS2xeCtLN66aic3k57oG3ewolOp2SvMxcB4968lr5PWemyx_O1CKjE4q_VPUtLygrXPkZQjpGflZCunv41dRtJizoE_FiOjcXcUBVa0sstljL9dc0tTMqARpHIneZcenmzjcZd5FWebdXtFKW8hJrEiwXF2h9taBD582EMK_hdRAlLFtd21xHbqq_-4rMImcIK4NgTn5EbSMjFD4f7layeY4XMaab5pTWcLoNCtQuzekpqySvMS3LkzqqjZ5m78Z3k2O6CosWBFfh5HtxchGsnOcapa-2wxfgevMKGdQKsUYtD75tZuChX_rlFnvnV5BvklmtQ7KLZ4vdCqwUTDH6kzPuBEL3uGRJVeSdNr4DeOYW3EwmK6T-cbEoxDvG2Y3tf0Dc84UHOaV9vphLaq5fe6HVrzN5t6EYGo3IyVsuajO4zMDDWbyY4gA4YlKVACzAb8_u00OW6IdyiPiSOPYCiV5vwB6lqc_U0SKJ0K6LCbFOogepKK-c4vf8bjKz5y9ZlPekOPoWaOgmerrywqYFJ5JCzBxRJwZpurd7z7smlBr0RBH0VJ_Hs9GXUDfuYDj6ahz7i_igLYGFRYQtLSWORj2sDhWNBo3y--&sai=AMfl-YStbrjFEiY-6R2r55ePZoYghJxxSdS4D_KKivsIh45AIcWyyAOwS3SEn_EO6KxDL0TSp4Fr4PmDFTmVcOUOIEOdftDc88bkfTsg6d7chBsq1b9d9vhcCsFlrkkHv5pNsAgs61XzexR1uAuRwBZ4hy4AJ1vdWaXxb2V9i-RW8QFuCMDbJjs-IZv-pcauF1q7C_DGMNaJX13IO02iPZep2XYFV7ySFn972ZsrhR0D0hjFHSfpS4LZ2NHrIAUwkWscAdBwKtWjujWLunDVYXfx9X5vVk3G0Du_WlTYHUQa7UBXk5FWYQucG6Y9nPQ4J3xFWBPvQk99cSgp69wNf0rQ16nifIrrI4jG&sig=Cg0ArKJSzAZXy1aoTTSSEAE&fbs_aeid="
+        ]
+      },
+      {
+        "64": [
+          "https://www.eastspring.co.jp/%3Futm_source%3Dprogrammatic%26utm_medium%3Ddisplay-banner%26utm_campaign%3Dbrand-p2-46%26utm_content%3Dkv"
+        ]
+      },
+      {
+        "118": [
+          "https://www.eastspring.co.jp/%3Futm_source%3Dprogrammatic%26utm_medium%3Ddisplay-banner%26utm_campaign%3Dbrand-p2-46%26utm_content%3Dkv"
+        ]
+      },
+      {
+        "153": []
+      },
+      {
+        "218": [
+          "https://www.eastspring.co.jp/%3Futm_source%3Dprogrammatic%26utm_medium%3Ddisplay-banner%26utm_campaign%3Dbrand-p2-46%26utm_content%3Dkv"
+        ]
+      },
+      {
+        "245": []
+      },
+      {
+        "287": [
+          "https://www.eastspring.co.jp/%3Futm_source%3Dprogrammatic%26utm_medium%3Ddisplay-banner%26utm_campaign%3Dbrand-p2-46%26utm_content%3Dkv"
+        ]
+      },
+      {
+        "291": []
+      },
+      {
+        "337": [
+          "https://www.aramco.com/en/campaigns/powered-by-how/energy-delivery?utm_source=display-Reuters_6407289&utm_medium=display&utm_campaign=JP_Wave2.5_display_inf_30230690&utm_content=pbh-os&utm_term=370816696_195063843"
+        ]
+      },
+      {
+        "383": [
+          "https://www.aramco.com/en/campaigns/powered-by-how/energy-delivery?utm_source=display-Reuters_6407289&utm_medium=display&utm_campaign=JP_Wave2.5_display_inf_30230690&utm_content=pbh-os&utm_term=370816696_195063843"
+        ]
+      },
+      {
+        "415": [
+          "https://www.eastspring.co.jp/%3Futm_source%3Dprogrammatic%26utm_medium%3Ddisplay-banner%26utm_campaign%3Dbrand-p2-46%26utm_content%3Dkv"
+        ]
+      },
+      {
+        "489": [
+          "https://www.eastspring.co.jp/%3Futm_source%3Dprogrammatic%26utm_medium%3Ddisplay-banner%26utm_campaign%3Dbrand-p2-46%26utm_content%3Dkv"
+        ]
+      },
+      {
+        "491": [
+          "https://www.reuters.com/newsletters/reuters-crypto-wire/%3Futm_medium%3Ddisplay%26utm_source%3DR.com%26utm_campaign%3DNewsletter%26utm_content%3Dcrypto_file"
+        ]
+      },
+      {
+        "497": [
+          "https://www.eastspring.co.jp/%3Futm_source%3Dprogrammatic%26utm_medium%3Ddisplay-banner%26utm_campaign%3Dbrand-p2-46%26utm_content%3Dkv"
+        ]
+      },
+      {
+        "517": []
+      },
+      {
+        "532": []
+      },
+      {
+        "572": [
+          "https://www.aramco.com/en/campaigns/powered-by-how/energy-delivery?utm_source=display-Reuters_6407289&utm_medium=display&utm_campaign=JP_Wave2.5_display_inf_30230690&utm_content=pbh-os&utm_term=370816696_195063843"
+        ]
+      },
+      {
+        "594": [
+          "https://www.aramco.com/en/campaigns/powered-by-how/reservoir-modelling?utm_source=display-Reuters_6407289&utm_medium=display&utm_campaign=JP_Wave2.5_display_inf_30230690&utm_content=pbh-rm&utm_term=371150787_194710586"
+        ]
+      },
+      {
+        "644": [
+          "https://www.aramco.com/en/campaigns/powered-by-how/reservoir-modelling?utm_source=display-Reuters_6407289&utm_medium=display&utm_campaign=JP_Wave2.5_display_inf_30230690&utm_content=pbh-rm&utm_term=370722161_194710586",
+          "https://www.reuters.com/newsletters/morning-bid-asia/%3Futm_medium%3Ddisplay%26utm_source%3DR.com%26utm_campaign%3DNewsletter%26utm_content%3Dmorning_Asia"
+        ]
+      },
+      {
+        "679": [
+          "https://www.aramco.com/en/campaigns/powered-by-how/reservoir-modelling?utm_source=display-Reuters_6407289&utm_medium=display&utm_campaign=JP_Wave2.5_display_inf_30230690&utm_content=pbh-rm&utm_term=370722161_194710586"
+        ]
+      },
+      {
+        "686": []
+      }
+    ],
+    "http://usatoday.com": [
+      {
+        "36": []
+      },
+      {
+        "71": []
+      },
+      {
+        "89": []
+      },
+      {
+        "105": []
+      },
+      {
+        "187": []
+      },
+      {
+        "188": [
+          "http://advantage.arkadium.com/%3Futm_source%3Dad%26arkpromo%3Dhouse_ad_landingpage%26utm_campaign%3Dhouse_ad_landingpage"
+        ]
+      },
+      {
+        "219": []
+      },
+      {
+        "283": []
+      },
+      {
+        "285": []
+      },
+      {
+        "314": []
+      },
+      {
+        "333": []
+      },
+      {
+        "346": []
+      },
+      {
+        "412": []
+      },
+      {
+        "420": []
+      },
+      {
+        "435": []
+      },
+      {
+        "451": []
+      },
+      {
+        "478": [
+          "https://asana.com/ja/japan%3Futm_source%3Ddbm%26utm_medium%3Dpd_disp_acq%26utm_content%3DFortune100%26dclid%3D%25edclid"
+        ]
+      },
+      {
+        "518": []
+      },
+      {
+        "526": []
+      },
+      {
+        "564": []
+      },
+      {
+        "581": []
+      },
+      {
+        "604": []
+      },
+      {
+        "645": []
+      },
+      {
+        "648": []
+      },
+      {
+        "651": [
+          "https://adclick.g.doubleclick.net/pcs/click%3Fxai%3DAKAOjsuWYJhvPgAFVgXHf60396TRTIpGkoYBeF5PJPI9UZivuokzUC4xuhhA1dnSCzIBay3cmLfWBneNSshe9ZQZ4lYZEoYfsm5Erl6820GHNZ7OGnfQngaaYSV2M6LlfQa31eDJAnabHHwJB8l6fNDCZz5pyob6H5_wsx3q9qrwZvUcldTkafJ4Yql6O1et7meLNbraPl7ce7cP9rRgLtE9asWsvzMbX7GbIgFTUuA0ZR6mLo_b6EjOTDnOceu5CLf-FwmpRLUHZOy_JpQTvWO9JeC_jkOe3zgnL3qmCmVQx-FPU4T0fdmt7jJVXvwCyGJwLDIcfkyQBwxeMwTNQo0MNQhD%26sai%3DAMfl-YRpTvDtPghru5tBJl6QSWWUXdHzGMbMfBlw18zn-8Xv_hn_bVATiXDvGgo7Ld_tkYV3Joonc-8GeZkSNJZKxsyD1URbXjJz4lvHAl-u0ptSFz96pZJg6cxnsK_44xt_7MlCUeEupePyIBb-UJVSBQ%26sig%3DCg0ArKJSzBE-IVi7FbXTEAE%26fbs_aeid%3D%5Bgw_fbsaeid%5D%26urlfix%3D1%26adurl%3Dhttps://propane.com/for-my-home/%253Futm_campaign%253Dnational-campaign-2023__aud-ho__str-mg-res%2526utm_medium%253Ddisplay%2526utm_source%253Dusatoday%2526utm_content%253Dperc-homeowner-dollars-and-sense_970x250",
+          "https://adclick.g.doubleclick.net/pcs/click%3Fxai%3DAKAOjssL3wFpp-o3ya_0XooW-D5vv427Ctm2dXyuptn-SAGlA3569Zppwt_el_tNXj7PcRzQgWJl82nHgbL0gJntRrpgDQunQbIy0hFcwOYwhK19chX6_5L6GZaCoQ57YR6swnIOjlL-87L7oHNvLU8tSkKT5XFkQB4kHpFnJ__hex0I6s4YrYgxfILllkQbLnZCOFdqGA-CYjy6cm0VZBlOHzHPDV1N5pWI_PZSNbjKq5OXVsKdLI7yRcACqcl1ShpBbDzHvY6s9xK4TYMJffQQJQ23enO3i3wSfMZgZv43bYIExZNrMrBgNClZpBdy3U8IBDtdNHAN1j_T-OENepMUygtzsw%26sai%3DAMfl-YQRnYsLX1C88HMFCJ5Pb7UJPott9u-8qlPqw9mBe_rMCs5nijv3ImBqlOOtctUkF6gfD_7W4u5re5uA51fpmfusBTJtjVPDsekRfeUTVVUPrJiUlypv-M5DxKj_sh0nUzcyQO52DBxH6-BAfws_Bg%26sig%3DCg0ArKJSzC3tFLtU4sSgEAE%26fbs_aeid%3D%5Bgw_fbsaeid%5D%26urlfix%3D1%26adurl%3Dhttps://propane.com/for-my-home/%253Futm_campaign%253Dnational-campaign-2023__aud-ho__str-mg-res%2526utm_medium%253Ddisplay%2526utm_source%253Dusatoday%2526utm_content%253Dperc-homeowner-dollars-and-sense_300x600"
+        ]
+      }
+    ],
+    "http://apnews.com": [
+      {
+        "8": []
+      },
+      {
+        "38": []
+      },
+      {
+        "112": [
+          "https://sin3-ib.adnxs.com/click2%3Fe%3DwqT_3QKbAfBDmwAAAAMAxBkFAQilurynBhD7ru-YjqfUimUYo_Sq_5f_oYlFILvNhQwo-wcw0RQ4AkDhmtCqAUjbppwBUABaA1VTRGIBBfBSaKwCcNgEePpZgAG81AWIAQGQAQGYAQWgAQKpASCZ0WUkwQlAsQGkq_hnYB4FQLkBAAAAgD2KIkDBAYzW9huS_whAyQF4tHHEWnwOQNgBzwHgAQA./s%3Dd9cf649fcf520661c13215fff0558181a58576d5/bcr%3DAAAAAAAA8D8%3D/cnd%3D%25218iI63wiOvbwYEOGa0KoBGNumnAEgACgAMQAAAAAAAAAAOglTSU4zOjU0MDdAsERJEd-JWS-G7T9RAAAAAAAAAABZAAAAAAAAAABhF5tvd2183D9pAAAAAAAAAABxAAAAAAAAAAB4AIIBHwjvpCUQBRgBIgNFVVIpEd-JWS-G7T8xPZtVn6utuD-JAQAAAAAAAPA_/cca%3DMjY0MSNTSU4zOjU0MDc%3D/bn%3D92732/clickenc%3D",
+          "https://sin3-ib.adnxs.com/click2%3Fe%3DwqT_3QKaAfBDmgAAAAMAxBkFAQjEurynBhCsrs2L8tv52FcYo_Sq_5f_oYlFILvNhQwo-wcw0RQ4AkDpmtCqAUjbppwBUABaA1VTRGIBBfBRaNgFcFp4-lmAAd7RBYgBAZABAZgBBaABAqkBSJIpzlaSCECxAekg-foTJgRAuQEAAACAPYoiQMEBjNb2G5L_CEDJAXi0ccRafA5A2AHPAeABAA../s%3D0cda43fbaacb067b9cef82342634bc779fbcb758/bcr%3DAAAAAAAA8D8%3D/cnd%3D%2521ACP75QiOvbwYEOma0KoBGNumnAEgACgAMQAAAAAAAAAAOglTSU4zOjQ3NjVAsERJEd-JWS-G7T9RAAAAAAAAAABZAAAAAAAAAABhF5tvd2183D9pAAAAAAAAAABxAAAAAAAAAAB4AIIBHwjvpCUQBRgBIgNFVVIpEd-JWS-G7T8xPZtVn6utuD-JAQAAAAAAAPA_/cca%3DMjY0MSNTSU4zOjQ3NjU%3D/bn%3D92382/clickenc%3D",
+          "https://sin3-ib.adnxs.com/click2%3Fe%3DwqT_3QKbAfBDmwAAAAMAxBkFAQjEurynBhD2wfbGn6zJ21AYo_Sq_5f_oYlFIKzNhQwo-wcw0RQ4AkDRmtCqAUjbppwBUABaA1VTRGIBBfBSaKwCcPoBePpZgAHe0QWIAQGQAQGYAQWgAQKpARv_4WbqZAFAsQF-J14ZyIb8P7kBAAAAYI9CIkDBAYzW9huS_whAyQF4tHHEWnwOQNgBzwHgAQA./s%3D3fc91eb66eb68f1d9be2ec8c1df95a328a5b2724/bcr%3DAAAAAAAA8D8%3D/cnd%3D%25216CIj2QiOvbwYENGa0KoBGNumnAEgACgAMQAAAAAAAAAAOglTSU4zOjQ3NjVAsERJEd-JWS-G7T9RAAAAAAAAAABZAAAAAAAAAABhF5tvd2183D9pAAAAAAAAAABxAAAAAAAAAAB4AIIBHwjvpCUQBRgBIgNFVVIpEd-JWS-G7T8xPZtVn6utuD-JAQAAAAAAAPA_/cca%3DMjY0MSNTSU4zOjQ3NjU%3D/bn%3D92382/clickenc%3D",
+          "https://sin3-ib.adnxs.com/click2%3Fe%3DwqT_3QKaAfBDmgAAAAMAxBkFAQjEurynBhCL4cWY56qtsjcYo_Sq_5f_oYlFINvNhQwo-wcw0RQ4AkDpmtCqAUjbppwBUABaA1VTRGIBBfBRaNgFcFp4-lmAAd7RBYgBAZABAZgBBaABAqkBwgQIyjVSAECxAaSr-LtDxPo_uQEAAABgj0IjQMEBjNb2G5L_CEDJAXi0ccRafA5A2AHPAeABAA../s%3D5ef9a6a8ae11884c521fff6cc7de4cc75f89f5b0/bcr%3DAAAAAAAA8D8%3D/cnd%3D%2521ACP75QiOvbwYEOma0KoBGNumnAEgACgAMQAAAAAAAAAAOglTSU4zOjQ3NjVAsERJEd-JWS-G7T9RAAAAAAAAAABZAAAAAAAAAABhF5tvd2183D9pAAAAAAAAAABxAAAAAAAAAAB4AIIBHwjvpCUQBRgBIgNFVVIpEd-JWS-G7T8xPZtVn6utuD-JAQAAAAAAAPA_/cca%3DMjY0MSNTSU4zOjQ3NjU%3D/bn%3D92382/clickenc%3D",
+          "https://sin3-ib.adnxs.com/click2%3Fe%3DwqT_3QKaAfBDmgAAAAMAxBkFAQilurynBhDakvO67Nb10SAYo_Sq_5f_oYlFINvNhQwo-wcw0RQ4AkDpmtCqAUjbppwBUABaA1VTRGIBBfBRaNgFcFp4-lmAAbzUBYgBAZABAZgBBaABAqkBOGz-FBBI_j-xAS6W-Qax1Pg_uQEAAABgj0IjQMEBjNb2G5L_CEDJAXi0ccRafA5A2AHPAeABAA../s%3Da2f4d4106cda4848c3368b20d958a1ed74246975/bcr%3DAAAAAAAA8D8%3D/cnd%3D%2521-iKC4wiOvbwYEOma0KoBGNumnAEgACgAMQAAAAAAAAAAOglTSU4zOjU0MDdAsERJEd-JWS-G7T9RAAAAAAAAAABZAAAAAAAAAABhF5tvd2183D9pAAAAAAAAAABxAAAAAAAAAAB4AIIBHwjvpCUQBRgBIgNFVVIpEd-JWS-G7T8xPZtVn6utuD-JAQAAAAAAAPA_/cca%3DMjY0MSNTSU4zOjU0MDc%3D/bn%3D92732/clickenc%3D",
+          "https://link.apnews.com/join/6nr/sports-wire-newsletter-house-ad",
+          "https://newsroom.ap.org/editorial-photos-videos/home%3Futm_source%3Dapnews%26utm_medium%3D728x90%2B%25E2%2580%2593%2BPamplona%26utm_campaign%3Daisearch",
+          "https://newsroom.ap.org/editorial-photos-videos/home%3Futm_source%3Dapnews%26utm_medium%3D300x250%2B-%2Bgold%2Bhead%2Bdress%26utm_campaign%3Daisearch",
+          "https://sin3-ib.adnxs.com/click2%3Fe%3DwqT_3QKbAfBDmwAAAAMAxBkFAQjEurynBhCw18r9hKvFxyAYo_Sq_5f_oYlFIMzNhQwo-wcw0RQ4AkDRmtCqAUjbppwBUABaA1VTRGIBBfBSaKwCcPoBePpZgAHe0QWIAQGQAQGYAQWgAQKpAUiSKX6bfwhAsQHpIPnStxYEQLkBAAAAIFyPI0DBAYzW9huS_whAyQF4tHHEWnwOQNgBzwHgAQA./s%3Daed00b3f2f1ead4b1d6168b91b20f5f5d0bd4b99/bcr%3DAAAAAAAA8D8%3D/cnd%3D%25216CIj2QiOvbwYENGa0KoBGNumnAEgACgAMQAAAAAAAAAAOglTSU4zOjQ3NjVAsERJEd-JWS-G7T9RAAAAAAAAAABZAAAAAAAAAABhF5tvd2183D9pAAAAAAAAAABxAAAAAAAAAAB4AIIBHwjvpCUQBRgBIgNFVVIpEd-JWS-G7T8xPZtVn6utuD-JAQAAAAAAAPA_/cca%3DMjY0MSNTSU4zOjQ3NjU%3D/bn%3D92382/clickenc%3D"
+        ]
+      },
+      {
+        "113": [
+          "https://link.apnews.com/join/6nr/sports-wire-newsletter-house-ad",
+          "https://newsroom.ap.org/editorial-photos-videos/home%3Futm_source%3Dapnews%26utm_medium%3D300x250%2B-%2Bgold%2Bhead%2Bdress%26utm_campaign%3Daisearch",
+          "https://newsroom.ap.org/editorial-photos-videos/home%3Futm_source%3Dapnews%26utm_medium%3D300x600-1%2B%25E2%2580%2593%2BBarbie%26utm_campaign%3Daisearch"
+        ]
+      },
+      {
+        "162": [
+          "https://link.apnews.com/join/6nr/sports-wire-newsletter-house-ad",
+          "https://sin3-ib.adnxs.com/click2%3Fe%3DwqT_3QKbAfBDmwAAAAMAxBkFAQiK7bynBhCXr8bw3JHvxGkY0q-_v6WT78tvIJnNhQwo-wcw0RQ4AkDPmtCqAUjbppwBUABaA1VTRGIBBfBSaKABcNgEePpZgAHq0gWIAQGQAQGYAQWgAQKpAdv2gVbtPQFAsQE--3gn10b8P7kBAAAAwMzMJEDBAaC3wgXqHv0_yQE2donqrcEBQNgBzwHgAQA./s%3Da68eedcc9d41934d974a37f86517dcd51560af92/bcr%3DAAAAAAAA8D8%3D/cnd%3D%25214SII1giOvbwYEM-a0KoBGNumnAEgACgAMQAAAAAAAAAAOglTSU4zOjQ3NTFAsERJEd-JWS-G7T9RAAAAAAAAAABZAAAAAAAAAABhF5tvd2183D9pAAAAAAAAAABxAAAAAAAAAAB4AIIBHwjvpCUQBRgBIgNFVVIpEd-JWS-G7T8xPZtVn6utuD-JAQAAAAAAAPA_/cca%3DMjY0MSNTSU4zOjQ3NTE%3D/bn%3D92522/clickenc%3D",
+          "https://sin3-ib.adnxs.com/click2%3Fe%3DwqT_3QKaAfBDmgAAAAMAxBkFAQjq7LynBhDprKzC09T_oFwY0q-_v6WT78tvIMzNhQwo-wcw0RQ4AkDpmtCqAUjbppwBUABaA1VTRGIBBfBRaNgFcFp4-lmAAZnUBYgBAZABAZgBBaABAqkBowRBFNUSAECxAUhPsjVTXPo_uQEAAAAgXI8jQMEBoLfCBeoe_T_JATZ2ieqtwQFA2AHPAeABAA../s%3D0f9f16a29984e5357a4e495e25c5b8e56368c09c/bcr%3DAAAAAAAA8D8%3D/cnd%3D%2521-iKD4wiOvbwYEOma0KoBGNumnAEgACgAMQAAAAAAAAAAOglTSU4zOjU0MTZAsERJEd-JWS-G7T9RAAAAAAAAAABZAAAAAAAAAABhF5tvd2183D9pAAAAAAAAAABxAAAAAAAAAAB4AIIBHwjvpCUQBRgBIgNFVVIpEd-JWS-G7T8xPZtVn6utuD-JAQAAAAAAAPA_/cca%3DMjY0MSNTSU4zOjU0MTY%3D/bn%3D92697/clickenc%3D",
+          "https://sin3-ib.adnxs.com/click2%3Fe%3DwqT_3QKbAfBDmwAAAAMAxBkFAQjq7LynBhDK5Lqxu9alnj0Y0q-_v6WT78tvILvNhQwo-wcw0RQ4AkDRmtCqAUjbppwBUABaA1VTRGIBBfBSaKwCcPoBePpZgAGZ1AWIAQGQAQGYAQWgAQKpATlo_G5nJP8_sQG0XzUOX4n5P7kBAAAAgD2KIkDBAaC3wgXqHv0_yQE2donqrcEBQNgBzwHgAQA./s%3D9279cdb25d8242a7d8d13691ef6190afe1d0275f/bcr%3DAAAAAAAA8D8%3D/cnd%3D%25214iKr1giOvbwYENGa0KoBGNumnAEgACgAMQAAAAAAAAAAOglTSU4zOjU0MTZAsERJEd-JWS-G7T9RAAAAAAAAAABZAAAAAAAAAABhF5tvd2183D9pAAAAAAAAAABxAAAAAAAAAAB4AIIBHwjvpCUQBRgBIgNFVVIpEd-JWS-G7T8xPZtVn6utuD-JAQAAAAAAAPA_/cca%3DMjY0MSNTSU4zOjU0MTY%3D/bn%3D92697/clickenc%3D",
+          "https://sin3-ib.adnxs.com/click2%3Fe%3DwqT_3QKaAfBDmgAAAAMAxBkFAQip7bynBhC7otXa--fssTAY0q-_v6WT78tvINvNhQwo-wcw0RQ4AkDpmtCqAUjbppwBUABaA1VTRGIBBfBRaNgFcFp4-lmAAaDTBYgBAZABAZgBBaABAqkBH_muxugS_j-xAbgJUgkbqfg_uQEAAABgj0IjQMEBoLfCBeoe_T_JATZ2ieqtwQFA2AHPAeABAA../s%3Da11872bc29ee6931b8db4bbf737104dafa7a7255/bcr%3DAAAAAAAA8D8%3D/cnd%3D%2521-yL04wiOvbwYEOma0KoBGNumnAEgACgAMQAAAAAAAAAAOglTSU4zOjU3NDFAsERJEd-JWS-G7T9RAAAAAAAAAABZAAAAAAAAAABhF5tvd2183D9pAAAAAAAAAABxAAAAAAAAAAB4AIIBHwjvpCUQBRgBIgNFVVIpEd-JWS-G7T8xPZtVn6utuD-JAQAAAAAAAPA_/cca%3DMjY0MSNTSU4zOjU3NDE%3D/bn%3D92576/clickenc%3D",
+          "https://sin3-ib.adnxs.com/click2%3Fe%3DwqT_3QKbAfBDmwAAAAMAxBkFAQiK7bynBhDZjKrZ-dmApBQY0q-_v6WT78tvIKzNhQwo-wcw0RQ4AkDRmtCqAUjbppwBUABaA1VTRGIBBfBSaKwCcPoBePpZgAHq0gWIAQGQAQGYAQWgAQKpAammAi5rFf8_sQFN-c5TFX35P7kBAAAAYI9CIkDBAaC3wgXqHv0_yQE2donqrcEBQNgBzwHgAQA./s%3D68cf276b24a17727f924aae54c370b0d176b5286/bcr%3DAAAAAAAA8D8%3D/cnd%3D%25214yIa1wiOvbwYENGa0KoBGNumnAEgACgAMQAAAAAAAAAAOglTSU4zOjQ3NTFAsERJEd-JWS-G7T9RAAAAAAAAAABZAAAAAAAAAABhF5tvd2183D9pAAAAAAAAAABxAAAAAAAAAAB4AIIBHwjvpCUQBRgBIgNFVVIpEd-JWS-G7T8xPZtVn6utuD-JAQAAAAAAAPA_/cca%3DMjY0MSNTSU4zOjQ3NTE%3D/bn%3D92522/clickenc%3D",
+          "https://sin3-ib.adnxs.com/click2%3Fe%3DwqT_3QKbAfBDmwAAAAMAxBkFAQiK7bynBhCitc_okOCJlBwY0q-_v6WT78tvIMzNhQwo-wcw0RQ4AkDRmtCqAUjbppwBUABaA1VTRGIBBfBSaKwCcPoBePpZgAHq0gWIAQGQAQGYAQWgAQKpAaMEQRTVEgBAsQFIT7I1U1z6P7kBAAAAIFyPI0DBAaC3wgXqHv0_yQE2donqrcEBQNgBzwHgAQA./s%3Def58d110635adb6d7853e182a0fd41e6bb17ffa2/bcr%3DAAAAAAAA8D8%3D/cnd%3D%25214yIa1wiOvbwYENGa0KoBGNumnAEgACgAMQAAAAAAAAAAOglTSU4zOjQ3NTFAsERJEd-JWS-G7T9RAAAAAAAAAABZAAAAAAAAAABhF5tvd2183D9pAAAAAAAAAABxAAAAAAAAAAB4AIIBHwjvpCUQBRgBIgNFVVIpEd-JWS-G7T8xPZtVn6utuD-JAQAAAAAAAPA_/cca%3DMjY0MSNTSU4zOjQ3NTE%3D/bn%3D92522/clickenc%3D"
+        ]
+      },
+      {
+        "169": [
+          "https://link.apnews.com/join/6nr/sports-wire-newsletter-house-ad",
+          "http://link.apnews.com/join/6nr/morning-wire-newsletter-house-ad%3Futm_source%3DAPNews_inhouse%26utm_campaign%3DGeneral%26utm_name%3D300x250%26utm_content%3D%26utm_id%3Dnewsletter_signup",
+          "https://newsroom.ap.org/editorial-photos-videos/home%3Futm_source%3Dapnews%26utm_medium%3D300x250%2B-%2Bgold%2Bhead%2Bdress%26utm_campaign%3Daisearch",
+          "https://link.apnews.com/join/6nr/sports-wire-newsletter-house-ad"
+        ]
+      },
+      {
+        "186": [
+          "https://link.apnews.com/join/6nr/sports-wire-newsletter-house-ad",
+          "https://link.apnews.com/join/6nr/sports-wire-newsletter-house-ad",
+          "http://link.apnews.com/join/6nr/morning-wire-newsletter-house-ad%3Futm_source%3DAPNews_inhouse%26utm_campaign%3DGeneral%26utm_name%3D300x250%26utm_content%3D%26utm_id%3Dnewsletter_signup"
+        ]
+      },
+      {
+        "252": [
+          "https://link.apnews.com/join/6nr/sports-wire-newsletter-house-ad",
+          "http://link.apnews.com/join/6nr/morning-wire-newsletter-house-ad%3Futm_source%3DAPNews_inhouse%26utm_campaign%3DGeneral%26utm_name%3D300x250%26utm_content%3D%26utm_id%3Dnewsletter_signup",
+          "http://link.apnews.com/join/6nr/morning-wire-newsletter-house-ad%3Futm_source%3DAPNews_inhouse%26utm_campaign%3DGeneral%26utm_name%3D728x90%26utm_content%3D%26utm_id%3Dnewsletter_signup",
+          "http://link.apnews.com/join/6nr/morning-wire-newsletter-house-ad%3Futm_source%3DAPNews_inhouse%26utm_campaign%3DMorning_Wire_the_stories%26utm_name%3D728x90%26utm_content%3D%26utm_id%3Dnewsletter_signup",
+          "https://newsroom.ap.org/editorial-photos-videos/home%3Futm_source%3Dapnews%26utm_medium%3D300x600-1%2B%25E2%2580%2593%2BBarbie%26utm_campaign%3Daisearch"
+        ]
+      },
+      {
+        "265": [
+          "http://link.apnews.com/join/6nr/morning-wire-newsletter-house-ad%3Futm_source%3DAPNews_inhouse%26utm_campaign%3DGeneral%26utm_name%3D300x250%26utm_content%3D%26utm_id%3Dnewsletter_signup",
+          "https://newsroom.ap.org/editorial-photos-videos/home%3Futm_source%3Dapnews%26utm_medium%3D300x250%2B-%2Bgold%2Bhead%2Bdress%26utm_campaign%3Daisearch",
+          "https://newsroom.ap.org/editorial-photos-videos/home%3Futm_source%3Dapnews%26utm_medium%3D300x600-1%2B%25E2%2580%2593%2BBarbie%26utm_campaign%3Daisearch"
+        ]
+      },
+      {
+        "293": [
+          "https://link.apnews.com/join/6nr/sports-wire-newsletter-house-ad",
+          "https://link.apnews.com/join/6nr/sports-wire-newsletter-house-ad",
+          "https://link.apnews.com/join/6nr/sports-wire-newsletter-house-ad",
+          "https://newsroom.ap.org/editorial-photos-videos/home%3Futm_source%3Dapnews%26utm_medium%3D300x600-1%2B%25E2%2580%2593%2BBarbie%26utm_campaign%3Daisearch"
+        ]
+      },
+      {
+        "387": [
+          "https://link.apnews.com/join/6nr/sports-wire-newsletter-house-ad",
+          "http://link.apnews.com/join/6nr/morning-wire-newsletter-house-ad%3Futm_source%3DAPNews_inhouse%26utm_campaign%3DGeneral%26utm_name%3D300x250%26utm_content%3D%26utm_id%3Dnewsletter_signup",
+          "http://link.apnews.com/join/6nr/morning-wire-newsletter-house-ad%3Futm_source%3DAPNews_inhouse%26utm_campaign%3DGeneral%26utm_name%3D728x90%26utm_content%3D%26utm_id%3Dnewsletter_signup",
+          "http://link.apnews.com/join/6nr/morning-wire-newsletter-house-ad%3Futm_source%3DAPNews_inhouse%26utm_campaign%3DMorning_Wire_start%26utm_name%3D300x250%26utm_content%3D%26utm_id%3Dnewsletter_signup"
+        ]
+      },
+      {
+        "450": [
+          "http://link.apnews.com/join/6nr/morning-wire-newsletter-house-ad%3Futm_source%3DAPNews_inhouse%26utm_campaign%3DMorning_Wire_start%26utm_name%3D300x250%26utm_content%3D%26utm_id%3Dnewsletter_signup",
+          "https://newsroom.ap.org/editorial-photos-videos/home%3Futm_source%3Dapnews%26utm_medium%3D300x250%2B-%2Bgold%2Bhead%2Bdress%26utm_campaign%3Daisearch",
+          "http://link.apnews.com/join/6nr/morning-wire-newsletter-house-ad%3Futm_source%3DAPNews_inhouse%26utm_campaign%3DGeneral%26utm_name%3D300x250%26utm_content%3D%26utm_id%3Dnewsletter_signup"
+        ]
+      },
+      {
+        "542": [
+          "https://link.apnews.com/join/6nr/sports-wire-newsletter-house-ad",
+          "http://link.apnews.com/join/6nr/morning-wire-newsletter-house-ad%3Futm_source%3DAPNews_inhouse%26utm_campaign%3DGeneral%26utm_name%3D300x250%26utm_content%3D%26utm_id%3Dnewsletter_signup",
+          "http://link.apnews.com/join/6nr/morning-wire-newsletter-house-ad%3Futm_source%3DAPNews_inhouse%26utm_campaign%3DMorning_Wire_the_stories%26utm_name%3D728x90%26utm_content%3D%26utm_id%3Dnewsletter_signup",
+          "http://link.apnews.com/join/6nr/morning-wire-newsletter-house-ad%3Futm_source%3DAPNews_inhouse%26utm_campaign%3DGeneral%26utm_name%3D728x90%26utm_content%3D%26utm_id%3Dnewsletter_signup",
+          "https://newsroom.ap.org/editorial-photos-videos/home%3Futm_source%3Dapnews%26utm_medium%3D300x250%2B-%2Bgold%2Bhead%2Bdress%26utm_campaign%3Daisearch",
+          "https://newsroom.ap.org/editorial-photos-videos/home%3Futm_source%3Dapnews%26utm_medium%3D300x600-1%2B%25E2%2580%2593%2BBarbie%26utm_campaign%3Daisearch"
+        ]
+      }
+    ],
+    "http://cbsnews.com": [
+      {
+        "7": []
+      },
+      {
+        "29": []
+      },
+      {
+        "52": []
+      },
+      {
+        "90": []
+      },
+      {
+        "128": []
+      },
+      {
+        "131": []
+      },
+      {
+        "142": []
+      },
+      {
+        "170": []
+      },
+      {
+        "189": []
+      },
+      {
+        "296": []
+      },
+      {
+        "378": []
+      },
+      {
+        "479": []
+      },
+      {
+        "519": []
+      },
+      {
+        "607": []
+      },
+      {
+        "617": []
+      },
+      {
+        "629": []
+      },
+      {
+        "668": []
+      },
+      {
+        "687": []
+      }
+    ],
+    "http://cnn.com": [
+      {
+        "31": [
+          "https://edition.cnn.com/business"
+        ]
+      },
+      {
+        "37": []
+      },
+      {
+        "44": [
+          "https://edition.cnn.com/sport/"
+        ]
+      },
+      {
+        "67": []
+      },
+      {
+        "137": [
+          "https://edition.cnn.com/sport/",
+          "https://edition.cnn.com/style",
+          "https://www.eastspring.co.jp/%3Futm_source%3Dprogrammatic%26utm_medium%3Ddisplay-banner%26utm_campaign%3Dbrand-p2-46%26utm_content%3Dkv",
+          "https://edition.cnn.com/sport"
+        ]
+      },
+      {
+        "181": [
+          "https://edition.cnn.com/sport/",
+          "https://edition.cnn.com/sport",
+          "https://edition.cnn.com/style",
+          "https://edition.cnn.com/sport",
+          "https://edition.cnn.com/business",
+          "https://edition.cnn.com/business"
+        ]
+      },
+      {
+        "204": [
+          "https://edition.cnn.com/sport/",
+          "https://edition.cnn.com/style",
+          "https://edition.cnn.com/style",
+          "https://edition.cnn.com/sport",
+          "https://edition.cnn.com/sport/"
+        ]
+      },
+      {
+        "217": [
+          "https://edition.cnn.com/business",
+          "https://edition.cnn.com/sport/",
+          "https://edition.cnn.com/sport",
+          "https://edition.cnn.com/business"
+        ]
+      },
+      {
+        "235": [
+          "https://edition.cnn.com/business",
+          "https://edition.cnn.com/style",
+          "https://edition.cnn.com/business",
+          "https://edition.cnn.com/style"
+        ]
+      },
+      {
+        "261": [
+          "https://sponsorcontent.cnn.com/edition/2023/generation-change/solve-for-tomorrow/%3Futm_medium%3Dcnn%26utm_source%3Ddis%26utm_campaign%3Dsamsung23_A1_apac",
+          "https://www.eastspring.co.jp/%3Futm_source%3Dprogrammatic%26utm_medium%3Ddisplay-banner%26utm_campaign%3Dbrand-p2-46%26utm_content%3Dkv",
+          "https://edition.cnn.com/sport",
+          "https://edition.cnn.com/sport",
+          "https://edition.cnn.com/business"
+        ]
+      },
+      {
+        "284": [
+          "https://edition.cnn.com/sport/",
+          "https://edition.cnn.com/sport",
+          "https://edition.cnn.com/sport",
+          "https://edition.cnn.com/style"
+        ]
+      },
+      {
+        "288": [
+          "https://edition.cnn.com/sport/",
+          "https://edition.cnn.com/style",
+          "https://edition.cnn.com/sport",
+          "https://edition.cnn.com/style",
+          "https://edition.cnn.com/sport/"
+        ]
+      },
+      {
+        "338": [
+          "https://edition.cnn.com/sport/",
+          "https://edition.cnn.com/business",
+          "https://edition.cnn.com/business",
+          "https://edition.cnn.com/style",
+          "https://edition.cnn.com/style"
+        ]
+      },
+      {
+        "416": [
+          "https://edition.cnn.com/sport",
+          "https://edition.cnn.com/style",
+          "https://edition.cnn.com/business",
+          "https://edition.cnn.com/business",
+          "https://edition.cnn.com/sport/"
+        ]
+      },
+      {
+        "502": [
+          "https://www.eastspring.co.jp/%3Futm_source%3Dprogrammatic%26utm_medium%3Ddisplay-banner%26utm_campaign%3Dbrand-p2-46%26utm_content%3Dkv",
+          "https://edition.cnn.com/business",
+          "https://edition.cnn.com/business"
+        ]
+      },
+      {
+        "533": [
+          "https://edition.cnn.com/sport/",
+          "https://edition.cnn.com/style",
+          "https://edition.cnn.com/business",
+          "https://edition.cnn.com/business"
+        ]
+      },
+      {
+        "552": [
+          "https://edition.cnn.com/sport/",
+          "https://edition.cnn.com/style",
+          "https://edition.cnn.com/style",
+          "https://edition.cnn.com/sport",
+          "https://edition.cnn.com/business"
+        ]
+      },
+      {
+        "563": []
+      },
+      {
+        "621": [
+          "https://www.eastspring.co.jp/%3Futm_source%3Dprogrammatic%26utm_medium%3Ddisplay-banner%26utm_campaign%3Dbrand-p2-46%26utm_content%3Dkv",
+          "https://edition.cnn.com/sport",
+          "https://edition.cnn.com/style",
+          "https://edition.cnn.com/style",
+          "https://edition.cnn.com/sport/"
+        ]
+      },
+      {
+        "622": [
+          "https://www.eastspring.co.jp/%3Futm_source%3Dprogrammatic%26utm_medium%3Ddisplay-banner%26utm_campaign%3Dbrand-p2-46%26utm_content%3Dkv",
+          "https://edition.cnn.com/business",
+          "https://edition.cnn.com/style",
+          "https://edition.cnn.com/style",
+          "https://www.eastspring.co.jp/%3Futm_source%3Dprogrammatic%26utm_medium%3Ddisplay-banner%26utm_campaign%3Dbrand-p2-46%26utm_content%3Dkv"
+        ]
+      },
+      {
+        "678": [
+          "https://www.eastspring.co.jp/%3Futm_source%3Dprogrammatic%26utm_medium%3Ddisplay-banner%26utm_campaign%3Dbrand-p2-46%26utm_content%3Dkv",
+          "https://edition.cnn.com/sport",
+          "https://edition.cnn.com/business"
+        ]
+      },
+      {
+        "685": [
+          "https://edition.cnn.com/sport/",
+          "https://edition.cnn.com/business",
+          "https://edition.cnn.com/style",
+          "https://edition.cnn.com/sport",
+          "https://edition.cnn.com/business"
+        ]
+      }
+    ]
+  }
+}

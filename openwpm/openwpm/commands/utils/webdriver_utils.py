@@ -305,7 +305,7 @@ def execute_in_all_frames(
     func,
     kwargs={},
     frame_stack=["default"],
-    max_depth=5,
+    max_depth=10,
     logger=None,
     visit_id=-1,
 ):

@@ -1,0 +1,68 @@
+{
+  "http://newyorker.com": [
+    [
+      null,
+      []
+    ],
+    [
+      null,
+      [
+        "https://nytedu.com/gap-year/nyc/%3Futm_source%3Ddv360%26utm_medium%3Ddisplay%26utm_campaign%3Ddv360_display_gy_img_fy23_global%26cid%3D7011G000000gteIQAQ"
+      ]
+    ],
+    [
+      null,
+      []
+    ],
+    [
+      null,
+      [
+        "https://nytedu.com/gap-year/nyc/%3Futm_source%3Ddv360%26utm_medium%3Ddisplay%26utm_campaign%3Ddv360_display_gy_img_fy23_global%26cid%3D7011G000000gteIQAQ"
+      ]
+    ],
+    [
+      null,
+      [
+        "https://nytedu.com/gap-year/nyc/%3Futm_source%3Ddv360%26utm_medium%3Ddisplay%26utm_campaign%3Ddv360_display_gy_img_fy23_global%26cid%3D7011G000000gteIQAQ"
+      ]
+    ],
+    [
+      null,
+      [
+        "https://nytedu.com/gap-year/nyc/%3Futm_source%3Ddv360%26utm_medium%3Ddisplay%26utm_campaign%3Ddv360_display_gy_img_fy23_global%26cid%3D7011G000000gteIQAQ"
+      ]
+    ]
+  ],
+  "http://washingtonpost.com": [
+    [
+      null,
+      []
+    ]
+  ],
+  "http://bbc.com": [
+    [
+      null,
+      []
+    ],
+    [
+      null,
+      [
+        "http://www.visittheusa.com%3Futm_source%3Dbbc%26utm_medium%3Dtd%26utm_campaign%3Dink%26utm_content%3Dtiwiasv%26utm_term%3Dprospec%26fy23_multi_gt_tiwia_ca_dis_pd"
+      ]
+    ]
+  ],
+  "http://cnn.com": [
+    [
+      null,
+      [
+        "https://edition.cnn.com/sport/"
+      ]
+    ],
+    [
+      null,
+      [
+        "https://edition.cnn.com/business"
+      ]
+    ]
+  ]
+}
