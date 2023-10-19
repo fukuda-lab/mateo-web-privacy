@@ -1,6 +1,7 @@
 # Large files
 openwpm/datadir/*
 openwpm/oba/datadir/*
+openwpm/oba/experiments/*
 # !openwpm/datadir/browser_profiles
 # openwpm/datadir/browser_profiles/*
 # !openwpm/datadir/screenshots
