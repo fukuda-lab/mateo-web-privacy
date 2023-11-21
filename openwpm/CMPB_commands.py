@@ -141,6 +141,123 @@ class SubGetCommand(BaseCommand):
             bot_mitigation(webdriver)
 
 
+class BannerInteractionNoDBSaveCommand(BaseCommand):
+    """
+    run all the Get and Bannerdetection with Interaction in one single command.
+    """
+
+    def __init__(self, url, sleep, index, timeout, choice):
+        self.logger = logging.getLogger("openwpm")
+        self.url = url
+        self.sleep = sleep
+        self.index = index
+        self.timeout = timeout
+        self.choice = choice
+
+    def __repr__(self):
+        return "CMPBCommand({},{},{},{})".format(self.url, self.sleep, self.index, self.timeout, self.choice)
+
+    def init_data(self):
+        Data.url = self.url
+        Data.index = self.index
+        Data.ttw = 0
+        Data.btn_status = {"btn_status": None, "btn_set_status": None}
+        Data.nc_cmp_name = None
+        Data.banners = []
+        Data.banners_data = []
+        Data.CMP = None
+        Data.interact_time = 0
+        Data.start_time = datetime.now()
+        Data.finish_time = 0
+
+    def execute(
+        self,
+        webdriver: Firefox,
+        browser_params: BrowserParams,
+        manager_params: ManagerParams,
+        extension_socket: ClientSocket,
+    ) -> None:
+        # if "https://www.tribunnews.com" == self.url:
+        #     i = 0
+        tab_restart_browser(webdriver)
+
+        # webdriver = bd.create_driver_session(webdriver.session_id, webdriver.command_executor._url)
+        # webdriver = bd.set_webdriver()
+        webdriver.set_page_load_timeout(self.timeout)
+        error_flag = False
+        exception = None
+        # webdriver.uninstall_addon('openwpm@mozilla.org')
+
+        bc.set_webdriver(webdriver)
+
+        # agent = webdriver.execute_script("return navigator.userAgent")
+        # print('\n\nagent:  ', agent)
+        # print('\n\nsize:  ', webdriver.get_window_size())
+        try:
+            webdriver.get(self.url)
+            Data.status = 0
+        except Exception as E:
+            try:
+                if bc.URL_MODE == 3:
+                    raise E
+                # self.url = self.url.replace('https', 'http')
+                self.url = self.url.replace('://', '://www.')
+                webdriver.get(self.url)
+                Data.status = 0
+            except TimeoutException:  # timeout
+                Data.status = 1
+            except Exception as E:  # unreachable
+                Data.status = 2
+                error_flag = True
+                exception = E
+
+#        time.sleep(self.sleep)
+
+        # Close modal dialog if exists
+        try:
+            WebDriverWait(webdriver, 0.5).until(EC.alert_is_present())
+            alert = webdriver.switch_to.alert
+            alert.dismiss()
+            time.sleep(1)
+        except (TimeoutException, WebDriverException):
+            pass
+
+        try:
+            close_other_windows(webdriver)
+
+            if browser_params.bot_mitigation:
+                bot_mitigation(webdriver)
+            current_url = webdriver.current_url
+
+            # Don't run banner detection if choice is 0
+            self.init_data()
+            if not bc.BANNERCLICK or self.choice == 0:
+                time.sleep(self.sleep)
+
+            # # Run banner detection and interaction
+            else:
+                banners = bc.run_banner_detection(Data)
+                Data.banners = banners
+                Data.banners_data = bc.extract_banners_data(banners)
+                bc.interact_with_banners(Data, self.choice)
+                # Mateo: deleted because we don't care about Consent Management Platform or saving the banner info in the db
+                # cd.set_webdriver(webdriver)
+                # Maybe the info about the banner result can be useful, but for now we want to stop getting the db record error
+                # Data.CMP = cd.run_cmp_detection()
+                # Data.sql_addr = manager_params.storage_controller_address
+                # bc.set_data_in_db_error(Data)
+                # bc.halt_for_sleep(Data)
+        except Exception as ex:
+            with open(log_file, 'a+') as f:
+                print("failed in CMPBCommand for url: " + self.url + " " + ex.__str__(), file=f)
+
+        if error_flag:
+                raise exception
+
+        if self.choice == 0:
+            self.logger.info("CMPB command is successfully executed for {} (without Interaction).".format(current_url))
+        else:
+            self.logger.info("CMPB command is successfully executed and result for {} is: number of banners {}.".format(current_url, len(banners)))
 class CMPBCommand(BaseCommand):
     """
     run all the Get, Bannerdetection, CMPDetection and SetEntry Command in one single command.

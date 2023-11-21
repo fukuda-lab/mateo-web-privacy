@@ -3,12 +3,12 @@ from typing import List
 sys.path.append('../openwpm')
 from openwpm.command_sequence import RecursiveDumpPageSourceCommand, ScreenshotFullPageCommand, CommandSequence
 from openwpm.commands.browser_commands import GetCommand
-from CMPB_commands import CMPBCommand
+from CMPB_commands import CMPBCommand, BannerInteractionNoDBSaveCommand
 from bannerclick.config import *
 from urllib.parse import urlparse
 import random
 
-def control_site_visit_sequence(control_site: str, next_site_rank: str = 0, clean_run: bool = False):
+def control_site_visit_sequence(control_site: str, next_site_rank: str = 0, clean_run: bool = False, cookie_banner_action: int = 0):
     """ Returns a command sequence that makes a clean run for a given control_site """
     
     def _control_sites_callback(success: bool, val: str = control_site) -> None:
@@ -23,35 +23,38 @@ def control_site_visit_sequence(control_site: str, next_site_rank: str = 0, clea
         reset=clean_run
     )
     domain = urlparse(control_site).netloc.split('.')[0]
-    control_site_sequence.append_command(GetCommand(control_site, sleep=90), timeout= 180)
+    if cookie_banner_action == 0:
+        control_site_sequence.append_command(GetCommand(control_site, sleep=300), timeout= 360)
+    else:
+        control_site_sequence.append_command(BannerInteractionNoDBSaveCommand(control_site, sleep=180, timeout= 240, index=next_site_rank, choice=cookie_banner_action), timeout= 300)
     control_site_sequence.append_command(ScreenshotFullPageCommand("_"), timeout= 180)
     control_site_sequence.append_command(RecursiveDumpPageSourceCommand(domain), timeout = 180)
     
     return control_site_sequence
 
 
-def individual_training_visit_sequence(training_site: str, next_site_rank = None, sleep: int = 10, creation: bool = False):
+def individual_training_visit_sequence(training_site: str, next_site_rank = None, sleep: int = 10, creation: bool = False, cookie_banner_action: int = 0):
     """ Visits one training_site """
     def _training_sites_callback(success: bool, val: str = training_site) -> None:
         print(
             f"{'[CREATION VISIT]' if creation else '[TRAINING VISIT]'} for {val} ran {'SUCCESSFULLY' if success else 'UNSUCCESSFULLY'}"
         )
         
-    profile_creation_visit_sequence = CommandSequence(
+    training_visit_sequence = CommandSequence(
         training_site,
         callback=_training_sites_callback,
     )
     
-    if creation:
-        profile_creation_visit_sequence.append_command(GetCommand(training_site, sleep=sleep), timeout= sleep + 60)
+    if creation or cookie_banner_action == 0:
+        training_visit_sequence.append_command(GetCommand(training_site, sleep=sleep), timeout= sleep + 180)
     # TODO: Probar con distintas choices
     else:
-        profile_creation_visit_sequence.append_command(CMPBCommand(training_site, sleep=sleep, index=next_site_rank, timeout= sleep + 60, choice=1))
+        training_visit_sequence.append_command(BannerInteractionNoDBSaveCommand(training_site, sleep=sleep, index=next_site_rank, timeout= sleep + 120, choice=cookie_banner_action), timeout= sleep + 180)
     
-    return profile_creation_visit_sequence
+    return training_visit_sequence
 
 
-def training_visits_sequence(training_sites: List[str], next_site_rank : int):
+def training_visits_sequence(training_sites: List[str], next_site_rank : int, cookie_banner_action: int = 0):
     command_sequences = []
     sites_remaining = training_sites.copy()
     
@@ -63,7 +66,7 @@ def training_visits_sequence(training_sites: List[str], next_site_rank : int):
         # Exponential distribution with mean 180 segs
         wait_time = int(random.expovariate(1 / 180))
         
-        command_sequences.append(individual_training_visit_sequence(site_to_visit, next_site_rank, wait_time))
+        command_sequences.append(individual_training_visit_sequence(site_to_visit, next_site_rank, wait_time, cookie_banner_action=cookie_banner_action))
         next_site_rank += 1
         # For now, for testing only 
         # command_sequences.append(individual_training_visit_sequence(site_to_visit, 30))

@@ -7,11 +7,12 @@ from openwpm.task_manager import TaskManager
 from oba.training_pages_handler import TrainingPagesHandler
 from oba.enums import IAB_CATEGORIES
 from oba import control_site_visit_sequence, individual_training_visit_sequence, training_visits_sequence, GenericQueries
+from bannerclick.config import *
 import json
 import sqlite3
 import random
 
-from bannerclick.config import WATCHDOG, OFFSET_ACCEPT, OFFSET_REJECT
+# from bannerclick.config import WATCHDOG, OFFSET_ACCEPT, OFFSET_REJECT
 
 # COMMAND: nohup python new_oba_crawler.py > {experiment_name}.log 2>&1 &
 
@@ -28,6 +29,8 @@ class OBAMeasurementExperiment:
         experiment_name: str,
         fresh_experiment: bool,
         use_custom_pages: bool = False,
+        # 0 do nothing, 1 accept, 2 reject
+        cookie_banner_action: int = 0,
         tranco_pages_params: dict[str, str] = None,
         custom_pages_params: dict[str, str] = None,
         webshrinker_credentials: dict[str,str] = None,
@@ -43,18 +46,27 @@ class OBAMeasurementExperiment:
         self.data_dir = f"./datadir/{self.experiment_name}/"
         self.fresh_experiment = fresh_experiment
         self.use_custom_pages = use_custom_pages
+        self.cookie_banner_action = cookie_banner_action
         
         # Sites where ads could be captured from
         # TODO: provide the option of a custom_list of control_pages
         self.control_pages = [
-            "http://cnn.com",
-            "http://usatoday.com",
-            # "http://accuweather.com",
-            # "http://wunderground.com",
-            # "http://myforecast.com",
-            "http://cbsnews.com",
-            "http://apnews.com",
-            "http://reuters.com"
+            # "http://www.accuweather.com/",
+            # "http://www.wunderground.com/",
+            # "http://www.localconditions.com/",
+            "http://myforecast.com/",
+            "http://www.weatherbase.com/",
+            # "http://cnn.com",
+            # "http://usatoday.com",
+            # # "http://accuweather.com",
+            # # "http://wunderground.com",
+            # # "http://myforecast.com",
+            # "http://cbsnews.com",
+            # "http://apnews.com",
+            # "http://reuters.com"
+            "https://www.theweathernetwork.com/",
+            "https://weather.com/",
+            "https://www.weather2umbrella.com/"
         ]
         
         # Browser profile validation
@@ -222,11 +234,11 @@ class OBAMeasurementExperiment:
                 # TRAINING
                 amount_of_pages = random.randint(1, 3)
                 training_sample = random.sample(self.training_pages, amount_of_pages)
-                sequence_list = training_visits_sequence(training_sample, next_site_rank)
+                sequence_list = training_visits_sequence(training_sample, next_site_rank, cookie_banner_action=self.cookie_banner_action)
             else:
                 # CONTROL
                 # If we start having more than one control visit sequence in this list, we must fix next_site_rank
-                sequence_list = [control_site_visit_sequence(random.choice(self.control_pages), next_site_rank)]
+                sequence_list = [control_site_visit_sequence(random.choice(self.control_pages), next_site_rank, cookie_banner_action=self.cookie_banner_action)]
             next_site_rank += len(sequence_list)
             for command_sequence in sequence_list:
                 manager.execute_command_sequence(command_sequence, 1)
@@ -298,6 +310,8 @@ class OBAMeasurementExperiment:
                     # Having self.training_pages_handler=None means that we are using custom_pages_list without categorization so it's the value for the boolean above when it corresponds
                     'custom_pages_list': self.training_pages if not self.training_pages_handler else [],
                     'training_pages_id': self.training_pages_handler.list_id if self.training_pages_handler else None,
+                    # 0 do nothing, 1 accept, 2 reject
+                    'cookie_banner_action': self.cookie_banner_action,
                     # Important only when using tranco
                     'n_pages': self.training_pages_handler.n_pages if self.training_pages_handler else None,
                     'browser_ids': {
@@ -324,8 +338,7 @@ class OBAMeasurementExperiment:
             self.manager_params,
             self.browser_params,
             SQLiteStorageProvider(Path(self.data_dir + 'crawl-data.sqlite')),
-            None,
-            experiment_name_for_path=f"{self.experiment_name}"
+            None
         ) as manager:
             
             get_and_create_experiment_config_json(manager)
