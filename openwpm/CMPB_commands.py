@@ -143,7 +143,7 @@ class SubGetCommand(BaseCommand):
 
 class BannerInteractionNoDBSaveCommand(BaseCommand):
     """
-    run all the Get and Bannerdetection with Interaction in one single command.
+    run all the Get and Bannerdetection with Interaction in one single command without saving the cookie banner data in SQLite DB
     """
 
     def __init__(self, url, sleep, index, timeout, choice):
@@ -155,7 +155,7 @@ class BannerInteractionNoDBSaveCommand(BaseCommand):
         self.choice = choice
 
     def __repr__(self):
-        return "CMPBCommand({},{},{},{})".format(self.url, self.sleep, self.index, self.timeout, self.choice)
+        return "BannerInteractionNoDBSaveCommand({},{},{},{})".format(self.url, self.sleep, self.index, self.timeout, self.choice)
 
     def init_data(self):
         Data.url = self.url

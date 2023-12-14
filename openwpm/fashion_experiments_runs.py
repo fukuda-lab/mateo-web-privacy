@@ -1,4 +1,4 @@
-from new_oba_crawler import OBAMeasurementExperiment
+from oba_crawler import OBAMeasurementExperiment
 
 API_KEY = 'GhU39K7bdfvdxRlcnEkT'
 SECRET_KEY = 'ZwnCzHIpw08DF10Fmz5c'
@@ -9,10 +9,8 @@ credentials = {
 
 
 # FASHION EXPERIMENT COOKIE BANNER UK VPN
-# fashion_uk_accept_cookies = {
-fashion_uk_accept_cookies_2 = {
-    'experiment_name' : 'fashion_uk_accept_cookies_2', # (Testing new command in CMPB_commands)
-    # 'experiment_name' : 'fashion_uk_accept_cookies',
+fashion_uk_accept_cookies = {
+    'experiment_name' : 'fashion_uk_accept_cookies',
     'fresh_experiment': True,
     'use_custom_pages': True,
     'cookie_banner_action': 1,
@@ -107,5 +105,5 @@ fashion_uk_nothing_cookies = {
     },
     }
 
-experiment_handler = OBAMeasurementExperiment(**fashion_uk_accept_cookies_2)
-experiment_handler.start(8)
+experiment_handler = OBAMeasurementExperiment(**fashion_uk_accept_cookies)
+experiment_handler.start(30)

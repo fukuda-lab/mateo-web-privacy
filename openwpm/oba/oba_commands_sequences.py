@@ -23,12 +23,13 @@ def control_site_visit_sequence(control_site: str, next_site_rank: str = 0, clea
         reset=clean_run
     )
     domain = urlparse(control_site).netloc.split('.')[0]
+    wait_time = 180 + random.randint(60, 120)
     if cookie_banner_action == 0:
-        control_site_sequence.append_command(GetCommand(control_site, sleep=300), timeout= 360)
+        control_site_sequence.append_command(GetCommand(control_site, sleep=wait_time), timeout= wait_time + 120)
     else:
-        control_site_sequence.append_command(BannerInteractionNoDBSaveCommand(control_site, sleep=180, timeout= 240, index=next_site_rank, choice=cookie_banner_action), timeout= 300)
-    control_site_sequence.append_command(ScreenshotFullPageCommand("_"), timeout= 180)
-    control_site_sequence.append_command(RecursiveDumpPageSourceCommand(domain), timeout = 180)
+        control_site_sequence.append_command(BannerInteractionNoDBSaveCommand(control_site, sleep=wait_time, timeout= wait_time + 60, index=next_site_rank, choice=cookie_banner_action), timeout= wait_time + 120)
+    control_site_sequence.append_command(ScreenshotFullPageCommand("_"), timeout= wait_time)
+    control_site_sequence.append_command(RecursiveDumpPageSourceCommand(domain), timeout = wait_time)
     
     return control_site_sequence
 
