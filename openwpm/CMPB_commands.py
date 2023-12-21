@@ -241,6 +241,7 @@ class BannerInteractionNoDBSaveCommand(BaseCommand):
                 Data.banners_data = bc.extract_banners_data(banners)
                 bc.interact_with_banners(Data, self.choice)
                 # Mateo: deleted because we don't care about Consent Management Platform or saving the banner info in the db
+                time.sleep(self.sleep)
                 # cd.set_webdriver(webdriver)
                 # Maybe the info about the banner result can be useful, but for now we want to stop getting the db record error
                 # Data.CMP = cd.run_cmp_detection()

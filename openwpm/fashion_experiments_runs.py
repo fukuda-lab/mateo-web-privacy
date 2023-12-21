@@ -106,4 +106,4 @@ fashion_uk_nothing_cookies = {
     }
 
 experiment_handler = OBAMeasurementExperiment(**fashion_uk_accept_cookies)
-experiment_handler.start(30)
+experiment_handler.start(8)

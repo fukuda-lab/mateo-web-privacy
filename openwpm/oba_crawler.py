@@ -16,7 +16,8 @@ import sys
 
 # from bannerclick.config import WATCHDOG, OFFSET_ACCEPT, OFFSET_REJECT
 
-# COMMAND: nohup python new_oba_crawler.py > {experiment_name}.log 2>&1 &
+# COMMAND: nohup python oba_crawler.py > {experiment_name}.log 2>&1 &
+# COMMAND: nohup python oba_crawler.py > logs/fashion_uk_accept_cookies.log 2>&1 &
 
 LATEST_CATEGORIZED_TRANCO_LIST_ID = 'N7WQWCOPY'
 DEFAULT_N_PAGES = 5000
