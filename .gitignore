@@ -12,6 +12,9 @@ openwpm/oba/experiments/*
 # !openwpm/datadir/sources
 # openwpm/datadir/sources/*
 
+# DS_Store
+.DS_Store
+
 # Tranco list cache directory
 .tranco/
 

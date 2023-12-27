@@ -1,8 +1,9 @@
-import re
-import json
 import gzip
-from bs4 import BeautifulSoup
+import json
+import re
+
 from adblockparser import AdblockRules
+from bs4 import BeautifulSoup
 from tldextract import extract
 
 # https://gist.github.com/gruber/8891611
@@ -17,45 +18,44 @@ def get_data_l_from_link(href_url):
 
     # landing_page_url[0] = keyword
     # landing_page_url[1] = landing page
-    current_data_l = [(href_url, landing_page_url[0], landing_page_url[1])
-                      for landing_page_url in landing_page_url_l]
+    current_data_l = [
+        (href_url, landing_page_url[0], landing_page_url[1])
+        for landing_page_url in landing_page_url_l
+    ]
 
     return current_data_l
 
 
-def check_source_string(ad_block_rules, iframe_key, data_d, depth = 0, parent_key = ''):
-    """ Recursively check the source strings """
+def check_source_string(ad_block_rules, iframe_key, data_d, depth=0, parent_key=""):
+    """Recursively check the source strings"""
     source_s = data_d["source"]
     iframe_d = data_d["iframes"]
 
     # https://stackoverflow.com/questions/3075550/how-can-i-get-href-links-from-html-using-python
     soup = BeautifulSoup(source_s, "html.parser")
-    
+
     # print(f'iframe_key = {iframe_key}  parent_key={parent_key}  depth = {depth}' )
     # print(soup)
-    
+
     # Amplitude 0
-    link_data_l = soup.findAll('a', attrs={'href': re.compile("^http?s://")})
-    link_l = [link_data.get('href') for link_data in link_data_l]
+    link_data_l = soup.findAll("a", attrs={"href": re.compile("^http?s://")})
+    link_l = [link_data.get("href") for link_data in link_data_l]
 
     # We are getting the iframes content separetely but we are getting them
     # Amplitude 1
     # link_data_l_a_tags = set(soup.findAll('a', attrs={'href': re.compile("^http?s://")}, recursive=True))
     # link_data_l_div_tags = set(soup.findAll('div', attrs={'href': re.compile("^http?s://")}, recursive=True))
     # link_data_l = list(link_data_l_a_tags) + list(link_data_l_div_tags)
-    
+
     # Amplitude 2
     # link_data_l = list(set(soup.findAll(attrs={'href': re.compile("^http?s://")})))
-    
-    
-    
+
     # control_page_domain = 'apnews'
     # link_l = []
     # for link_data in link_data_l:
     #     if extract(link_data.get('href')).domain != control_page_domain:
     #         link_l.append(link_data.get('href'))
-    
-    
+
     # Amplitude 3
     # link_data_l = list(set(soup.findAll(href=re.compile("^http?s://"))))
     # control_page_domain = 'apnews'
@@ -63,29 +63,27 @@ def check_source_string(ad_block_rules, iframe_key, data_d, depth = 0, parent_ke
     # for link_data in link_data_l:
     #     if extract(link_data.get('href')).domain != control_page_domain:
     #         link_l.append(link_data.get('href'))
-    
+
     # print(link_l)
     # We will test if filtering by page domain lets us filter a little bit all of the URLs so we can focus on the important ones
 
     # From all the hrefs of <a> tags, collect the ones that would be ads (blocklists)
     ad_link_l = [
-        link for link in link_l
-        if ad_block_rules.should_block(link, {'script': False})
+        link for link in link_l if ad_block_rules.should_block(link, {"script": False})
     ]
     # print(ad_link_l)
     # Extract all the URLs from adurl or redirect from the ad URLs (links)
     current_data_l_l_tmp = [get_data_l_from_link(link) for link in ad_link_l]
     # Flatten the list
-    current_data_l_tmp = [
-        item for sublist in current_data_l_l_tmp for item in sublist
-    ]
+    current_data_l_tmp = [item for sublist in current_data_l_l_tmp for item in sublist]
     # Build the return value in its correct shape
-    current_data_l = [(iframe_key, href_url, keyword, landing_page_url)
-                      for (href_url, keyword,
-                           landing_page_url) in current_data_l_tmp]
+    current_data_l = [
+        (iframe_key, href_url, keyword, landing_page_url)
+        for (href_url, keyword, landing_page_url) in current_data_l_tmp
+    ]
 
     data_l_l = [
-        check_source_string(ad_block_rules, k, v, depth+1, iframe_key)
+        check_source_string(ad_block_rules, k, v, depth + 1, iframe_key)
         for (k, v) in iframe_d.items()
     ]
     data_l = [item for sublist in data_l_l for item in sublist]
@@ -94,30 +92,30 @@ def check_source_string(ad_block_rules, iframe_key, data_d, depth = 0, parent_ke
 
 
 def process(filter_file_path, input_json_gz_path, output_directory_path=""):
-    
+
     # Open filter lists' paths and parse them
     filter_l_l = [open(path).read().splitlines() for path in filter_file_path]
     filter_l = [item for sublist in filter_l_l for item in sublist]
 
     ad_block_rules = AdblockRules(filter_l)
 
-    f = gzip.open(input_json_gz_path, 'rb')
+    f = gzip.open(input_json_gz_path, "rb")
 
     data_d = json.load(f)
     # with open("example_result.json", "w") as outfile:
-        # json.dump(data_d, outfile, indent=4, sort_keys=False)
+    # json.dump(data_d, outfile, indent=4, sort_keys=False)
 
     # Start recursively checking the source
     data_l = check_source_string(ad_block_rules, "init", data_d)
     data_l_dict = {
-        iframe_key : {
-            'href_url': href_url,
-            'keyword': keyword,
-            'landing_page_url': landing_page_url
+        iframe_key: {
+            "href_url": href_url,
+            "keyword": keyword,
+            "landing_page_url": landing_page_url,
         }
         for iframe_key, href_url, keyword, landing_page_url in data_l
     }
-    
+
     return data_l_dict
 
 

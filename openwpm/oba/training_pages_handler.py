@@ -1,85 +1,98 @@
+import asyncio
 import os
 import sqlite3
-import asyncio
+
 import aiohttp
 from tqdm import tqdm
-from tranco import Tranco # docs: https://pypi.org/project/tranco/
-from .enums import IAB_CATEGORIES
+from tranco import Tranco  # docs: https://pypi.org/project/tranco/
+
 from .categorizer import Categorizer
+from .enums import IAB_CATEGORIES
 
 # from datetime import datetime
 # today_date = datetime.today().strftime('%Y-%m-%d')
 DEFAULT_N_PAGES = 5000
 
+
 class TrainingPagesHandler:
-    """ Handler for the Training Pages generation, processing and reading logic. The name for the db is 'list_id-n_pages' """
-    
-    # TODO: change n_pages to default 5000 when tested
+    """Handler for the Training Pages generation, processing and reading logic. The name for the db is 'list_id-n_pages'"""
+
     def __init__(
-            self,
-            list_id: str = '',
-            categorize: bool = False,
-            webshrinker_credentials: dict[str, str] = None,
-            # TODO: Check if list_date would be worth offering. If it is worth, uncomment the places of the code where 'list_date' appears.
-            # Given that now the training pages list behavior will be managed by the OBACrawler class, and what matters to us is the categories, which are tied to a specific list and n_pages, the list_date would be too much.
-            # list_date: str = '',
-            n_pages: int = DEFAULT_N_PAGES,
-            updated_tranco: bool = False,
-            custom_list: bool = False,
-            custom_pages_list: list = []
+        self,
+        list_id: str = "",
+        categorize: bool = False,
+        webshrinker_credentials: dict[str, str] = None,
+        # TODO: Check if list_date would be worth offering. If it is worth, uncomment the places of the code where 'list_date' appears.
+        # Given that now the training pages list behavior will be managed by the OBACrawler class, and what matters to us is the categories, which are tied to a specific list and n_pages, the list_date would be too much.
+        # list_date: str = '',
+        n_pages: int = DEFAULT_N_PAGES,
+        updated_tranco: bool = False,
+        custom_list: bool = False,
+        custom_pages_list: list = [],
+    ):
+        if categorize and (
+            not webshrinker_credentials
+            or webshrinker_credentials.keys() != {"api_key", "secret_key"}
         ):
-        if categorize and (not webshrinker_credentials or webshrinker_credentials.keys() != {'api_key', 'secret_key'}):
-            raise ValueError("If categorizing is required, valid credentials for Webshrinker are required")
+            raise ValueError(
+                "When using the categorization feature, valid credentials for Webshrinker need to be provided"
+            )
         self.n_pages = n_pages
         if webshrinker_credentials:
             self.categorizer = Categorizer(**webshrinker_credentials)
         else:
             self.categorizer = None
         self.custom_list = custom_list
-        
+
         # Case specific training pages are provided by the user
         if custom_list:
             if not custom_pages_list or not list_id:
-                raise ValueError("For custom training pages lists, an id for the list and a value for the list of url strings must be provided")
+                raise ValueError(
+                    "For custom training pages lists, an id for the list and a value for the list of url strings must be provided"
+                )
             self.training_pages_list = custom_pages_list
             self.list_id = f"custom-{list_id}"
-        
+
         # Cases using tranco
         else:
             # if list_id:
-            self.tranco = TrainingPagesHandler.retrieve_tranco_top_list(list_id=list_id, updated=updated_tranco)
+            self.tranco = TrainingPagesHandler.retrieve_tranco_top_list(
+                list_id=list_id, updated=updated_tranco
+            )
             # elif list_date:
-                # self.tranco = TrainingPagesHandler.retrieve_tranco_top_list(list_date=list_date)
+            # self.tranco = TrainingPagesHandler.retrieve_tranco_top_list(list_date=list_date)
             # else:
-                # If neither list_id and list_date are given, we will use the list and db included in the repository
-                # self.tranco = TrainingPagesHandler.retrieve_tranco_top_list(list_id='X53KN')
-                
+            # If neither list_id and list_date are given, we will use the list and db included in the repository
+            # self.tranco = TrainingPagesHandler.retrieve_tranco_top_list(list_id='X53KN')
+
             self.training_pages_list = self.tranco.top(n_pages)
             self.list_id = self.tranco.list_id
-        
-        
+
         # This way we make sure that we never create the exact same database two times for a given list with a fixed number of pages
-        cwd = os.getcwd()
-        self.sqlite_db_name = f"{self.list_id}-{str(len(self.training_pages_list))}.sqlite"
+        self.sqlite_db_name = (
+            f"{self.list_id}-{str(len(self.training_pages_list))}.sqlite"
+        )
         script_dir = os.path.dirname(os.path.abspath(__file__))
-        self.db_path = os.path.join(script_dir, "datadir",self.sqlite_db_name)
-            
+        self.db_path = os.path.join(
+            script_dir, "datadir_training_pages", self.sqlite_db_name
+        )
+
     @staticmethod
     def retrieve_tranco_top_list(
-        list_id : str = '',
+        list_id: str = "",
         updated: bool = False,
         # list_date : str = '',
     ):
-        """ Call Tranco library list and get the pages either from cache or up-to-date.  
+        """Call Tranco library list and get the pages either from cache or up-to-date.
         Returns a TrancoList object with method top(n_pages) and attributes list_id and date.
         """
         script_dir = os.path.dirname(os.path.abspath(__file__))
         tranco_cache_path = os.path.join(script_dir, "tranco_lists")
-        
-        t = Tranco(cache = True, cache_dir=tranco_cache_path)
+
+        t = Tranco(cache=True, cache_dir=tranco_cache_path)
         if updated == True:
             # Get latest
-            tranco_list = t.list() 
+            tranco_list = t.list()
         if updated == False:
             # if not list_id and not list_date: # Missing info
             #     raise ValueError('A value for list_date or list_id arguments (only one of them) is required when getting a non updated version of the list')
@@ -88,27 +101,30 @@ class TrainingPagesHandler:
             # elif list_id and not list_date: # list_id provided
             #     tranco_list = t.list(list_id=list_id)
             # else:
-                # try:
+            # try:
             tranco_list = t.list(list_id=list_id)
-                # except:
-                    # tranco_list = t.list(date=list_date)
-                    
+            # except:
+            # tranco_list = t.list(date=list_date)
+
         return tranco_list
-            
+
     def _create_db_if_not_exists(self):
-        """ Creates the database for the training_pages related data, and insert the training pages in the TrainingPages table"""
+        """Creates the database for the training_pages related data, and insert the training pages in the TrainingPages table"""
         conn = sqlite3.connect(self.db_path)
         cursor = conn.cursor()
 
-        cursor.execute("""
+        cursor.execute(
+            """
         CREATE TABLE IF NOT EXISTS TrainingPages (
             id INTEGER PRIMARY KEY,
             page_url TEXT UNIQUE,
             tranco_rank INTEGER DEFAULT NULL
         )
-        """)
+        """
+        )
 
-        cursor.execute("""
+        cursor.execute(
+            """
         CREATE TABLE IF NOT EXISTS RetrievedCategories (
             id INTEGER PRIMARY KEY,
             training_page_id INTEGER,
@@ -120,50 +136,64 @@ class TrainingPagesHandler:
             confident BOOLEAN,
             FOREIGN KEY(training_page_id) REFERENCES TrainingPages(id)
         )
-        """)
-        
+        """
+        )
+
         for index, page in enumerate(self.training_pages_list):
             if self.custom_list:
-                print('Remember that custom pages must include http protocol in the string')
+                print(
+                    "Remember that custom pages must include http protocol in the string"
+                )
                 # If it is a custom list, we cannot add the tranco_rank to the training page entry
                 try:
-                    cursor.execute("INSERT INTO TrainingPages (page_url) VALUES (?)", (page))
+                    cursor.execute(
+                        "INSERT INTO TrainingPages (page_url) VALUES (?)", (page)
+                    )
                 except sqlite3.IntegrityError:
-                    print('[DUPLICATE ERROR] Possible that page_url: {page} already exists')
+                    print(
+                        "[DUPLICATE ERROR] Possible that page_url: {page} already exists"
+                    )
                     pass
             else:
-                url = 'http://' + page
+                url = "http://" + page
                 try:
-                    cursor.execute("INSERT INTO TrainingPages (page_url, tranco_rank) VALUES (?, ?)", (url, index + 1))
+                    cursor.execute(
+                        "INSERT INTO TrainingPages (page_url, tranco_rank) VALUES (?, ?)",
+                        (url, index + 1),
+                    )
                 except sqlite3.IntegrityError:
-                    print('[DUPLICATE ERROR] Possible that page_url: {url} already exists')
+                    print(
+                        "[DUPLICATE ERROR] Possible that page_url: {url} already exists"
+                    )
                     pass
 
         conn.commit()
         conn.close()
         return
 
-    def categorize_training_pages(self, request_rate: int = 1, taxonomy: str = 'iabv1'):
-        """ Initializes a new or existing SQLite database with the training_pages list, and starts/resumes the categorization of the list """
+    def categorize_training_pages(self, request_rate: int = 1, taxonomy: str = "iabv1"):
+        """Initializes a new or existing SQLite database with the training_pages list, and starts/resumes the categorization of the list"""
 
         def _get_uncategorized_pages(db_path):
             conn = sqlite3.connect(db_path)
             cursor = conn.cursor()
             # Query to retrieve the list of TrainingPages without categories
-            cursor.execute("""
+            cursor.execute(
+                """
                 SELECT TrainingPages.page_url
                 FROM TrainingPages
                 LEFT JOIN RetrievedCategories ON TrainingPages.id = RetrievedCategories.training_page_id
                 WHERE RetrievedCategories.id IS NULL
-            """)
+            """
+            )
             result = cursor.fetchall()
             page_urls_without_categories = [row[0] for row in result]
-            
+
             print(f"{len(page_urls_without_categories)} pages yet to be categorized...")
             return page_urls_without_categories
-        
+
         async def _async_categorize(db_path, request_rate, urls_to_categorize):
-            """ Categorize a list of URLs asyncronously given a request rate """
+            """Categorize a list of URLs asyncronously given a request rate"""
             conn = sqlite3.connect(db_path)
             cursor = conn.cursor()
 
@@ -177,54 +207,77 @@ class TrainingPagesHandler:
                         # retries = 3  # Number of retries
                         delay = 1  # Initial delay in seconds
                         while True:
-                            response = await self.categorizer.categorize(session, url, taxonomy=taxonomy)
-                            if response['status_code'] == 200:
+                            response = await self.categorizer.categorize(
+                                session, url, taxonomy=taxonomy
+                            )
+                            if response["status_code"] == 200:
                                 # TODO: check case where we would need more than one "top_level_category"
                                 # Poblate RetrievedCategories with all the categories received (max 3 per url in case of normal sites url with WebShrinker taxonomy)
-                                for result in response['categories_response']:
-                                    cursor.execute("SELECT id FROM TrainingPages WHERE page_url=?", (url,))
+                                for result in response["categories_response"]:
+                                    cursor.execute(
+                                        "SELECT id FROM TrainingPages WHERE page_url=?",
+                                        (url,),
+                                    )
                                     page_id = cursor.fetchone()[0]
                                     cursor.execute(
                                         "INSERT INTO RetrievedCategories (training_page_id, training_page_url, category, taxonomy, taxonomy_tier, taxonomy_id, confident) VALUES (?, ?, ?, ?, ?, ?, ?)",
-                                        (page_id, url, result['category'], result['taxonomy'], result['taxonomy_tier'], result['taxonomy_id'], result['confident'])
+                                        (
+                                            page_id,
+                                            url,
+                                            result["category"],
+                                            result["taxonomy"],
+                                            result["taxonomy_tier"],
+                                            result["taxonomy_id"],
+                                            result["confident"],
+                                        ),
                                     )
                                 progress.update(1)
                                 print(f"[SUCCESS] Fetched categories for {url}")
                                 break
-                            elif response['status_code'] == 429:
-                                print(f"[WARNING] Rate limit exceeded for {url}. Retrying in {delay} seconds...")
+                            elif response["status_code"] == 429:
+                                print(
+                                    f"[WARNING] Rate limit exceeded for {url}. Retrying in {delay} seconds..."
+                                )
                                 await asyncio.sleep(delay)
                                 if delay < 4:
                                     delay *= 2  # Double the delay for each retry
                                 else:
-                                    delay += 1  # Add only one second after for 4 seconds
+                                    delay += (
+                                        1  # Add only one second after for 4 seconds
+                                    )
 
                             else:
                                 print(f"[ERROR] {response}")
                                 break
-                            
 
                 tasks = [fetch_and_store(url) for url in urls_to_categorize]
                 await asyncio.gather(*tasks)
 
                 conn.commit()
                 conn.close()
-        
+
         self._create_db_if_not_exists()
-        
+
         # Only categorize missing training_pages so we can just resume in case of errors or large scale lists
         uncategorized_training_pages = _get_uncategorized_pages(self.db_path)
         if len(uncategorized_training_pages) == 0:
-            print("All training pages are already categorized or the list_id + number of pages is incorrect (db_name error)")
+            print(
+                "All training pages are already categorized or the list_id + number of pages is incorrect (db_name error)"
+            )
             return
-        asyncio.run(_async_categorize(self.db_path, request_rate, uncategorized_training_pages))
-        
-        
-    def get_training_pages_by_category(self, category: str, taxonomy_type: str = 'iabv1'):
+        asyncio.run(
+            _async_categorize(self.db_path, request_rate, uncategorized_training_pages)
+        )
+
+    def get_training_pages_by_category(
+        self, category: str, taxonomy_type: str = "iabv1"
+    ):
         # Check for valid taxonomy type
         if taxonomy_type not in ["iabv1", "webshrinker"]:
-            raise ValueError("Invalid taxonomy type. Accepted values are 'iabv1' or 'webshrinker'")
-        
+            raise ValueError(
+                "Invalid taxonomy type. Accepted values are 'iabv1' or 'webshrinker'"
+            )
+
         # Check for valid category given the taxonomy
         matched = False
         if taxonomy_type == "iabv1":
@@ -240,37 +293,39 @@ class TrainingPagesHandler:
                     matched = True
                     break
         if matched == False:
-            raise ValueError("Invalid category. Check https://docs.webshrinker.com/v3/iab-website-categories.html#tier-1-and-tier-2-categories")
-        
+            raise ValueError(
+                "Invalid category. Check https://docs.webshrinker.com/v3/iab-website-categories.html#tier-1-and-tier-2-categories"
+            )
+
         print(self.db_path)
         # START FETCH
         # Create a connection and cursor
         conn = sqlite3.connect(self.db_path)
         cursor = conn.cursor()
-        
+
         # Fetch the URLs based on category and taxonomy type
-        cursor.execute("""
+        cursor.execute(
+            """
         SELECT training_page_url 
         FROM RetrievedCategories 
         WHERE category = ? AND taxonomy = ?
-        """, (category, taxonomy_type))
-        
+        """,
+            (category, taxonomy_type),
+        )
+
         # Fetch all rows
         rows = cursor.fetchall()
-        
+
         # Close connection
         conn.close()
-        
+
         # Extract URLs from rows
         urls = [row[0] for row in rows]
-        
+
         return urls
-    
-    
-        
+
     def generate_training_pages_summary(self):
-        
-        
+
         # Connect to the SQLite database
         conn = sqlite3.connect(self.db_path)
         cursor = conn.cursor()
@@ -281,31 +336,37 @@ class TrainingPagesHandler:
         print(f"Total training pages: {total_training_pages}")
 
         # Fetch the number of categorized training pages
-        cursor.execute("""
+        cursor.execute(
+            """
         SELECT COUNT(DISTINCT training_page_id)
         FROM RetrievedCategories
-        """)
+        """
+        )
         total_categorized_pages = cursor.fetchone()[0]
         print(f"Total categorized training pages: {total_categorized_pages}")
 
         # Fetch a few categorized pages as samples
-        cursor.execute("""
+        cursor.execute(
+            """
         SELECT id, training_page_url, category, 
             taxonomy, taxonomy_tier, taxonomy_id,
             confident, training_page_id
         FROM RetrievedCategories
         ORDER BY category
-        """)
+        """
+        )
         samples = cursor.fetchall()
 
         print("\nSample categorized pages:")
         for sample in samples:
-            print(f"ID: {sample[0]}\nURL: {sample[1]}\nCategory: {sample[2]}\nTaxonomy: {sample[3]}\nTaxonomy Tier: {sample[4]}\n")
+            print(
+                f"ID: {sample[0]}\nURL: {sample[1]}\nCategory: {sample[2]}\nTaxonomy: {sample[3]}\nTaxonomy Tier: {sample[4]}\n"
+            )
 
         # Close the connection
         conn.close()
 
-            
+
 # API_KEY = 'GhU39K7bdfvdxRlcnEkT'
 # SECRET_KEY = 'ZwnCzHIpw08DF10Fmz5c'
 # # Example usage
@@ -324,4 +385,3 @@ class TrainingPagesHandler:
 
 # test_category_pages = pages_handler.get_training_pages_by_category('iabv1', 'Technology & Computing')
 # print(test_category_pages)
-

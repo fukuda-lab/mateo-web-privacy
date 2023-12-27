@@ -12,7 +12,7 @@ from typing import Any, Callable, List, Literal, Optional
 
 import sentry_sdk
 
-from openwpm import mp_logger
+from fobam import mp_logger
 from openwpm.command_sequence import CommandSequence
 from openwpm.config import BrowserParams, ManagerParams
 from openwpm.storage.cloud_storage.gcp_storage import (
