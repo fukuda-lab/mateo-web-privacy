@@ -63,6 +63,7 @@ class OBAMeasurementExperiment:
         self.fresh_experiment = fresh_experiment
         self.use_custom_pages = use_custom_pages
         self.cookie_banner_action = cookie_banner_action
+        self.banner_results_filename = f"./datadir/cookie_banner_results.csv"
 
         # Sites where ads could be captured from
         # TODO: provide the option of a custom_list of control_pages
@@ -472,6 +473,7 @@ class OBAMeasurementExperiment:
                     training_sample,
                     next_site_rank,
                     cookie_banner_action=self.cookie_banner_action,
+                    result_csv_file_name=self.banner_results_filename,
                 )
             else:
                 # CONTROL
@@ -481,6 +483,7 @@ class OBAMeasurementExperiment:
                         random.choice(self.control_pages),
                         next_site_rank,
                         cookie_banner_action=self.cookie_banner_action,
+                        result_csv_file_name=self.banner_results_filename,
                     )
                 ]
             next_site_rank += len(sequence_list)
@@ -619,10 +622,9 @@ class OBAMeasurementExperiment:
 
         # Get crawler_database path
         crawl_db_path = "./oba/datadir_training_pages/_crawls/crawl-data.sqlite"
-        banner_results_filename = f"./datadir/cookie_banner_results.csv"
 
         # Create csv file to save the results
-        with open(banner_results_filename, "w") as f:
+        with open(self.banner_results_filename, "w") as f:
             f.write(f"site_url,cookie_banner\n")
 
         try:
@@ -637,7 +639,7 @@ class OBAMeasurementExperiment:
                 bannerclick_cookie_banner_command_sequences = (
                     get_cookie_banner_visit_sequences(
                         training_pages=page_urls,
-                        banner_results_csv_name=banner_results_filename,
+                        banner_results_csv_name=self.banner_results_filename,
                     )
                 )
                 for command_sequence in bannerclick_cookie_banner_command_sequences:
@@ -646,7 +648,7 @@ class OBAMeasurementExperiment:
                 manager.close()
 
             # Read csv file and update database
-            with open(banner_results_filename, "r") as f:
+            with open(self.banner_results_filename, "r") as f:
                 lines = f.readlines()
                 for line in lines[1:]:
                     page_url, cookie_banner = line.split(",")
@@ -665,7 +667,7 @@ class OBAMeasurementExperiment:
 
         except:
             # Read csv file and update database
-            with open(banner_results_filename, "r") as f:
+            with open(self.banner_results_filename, "r") as f:
                 lines = f.readlines()
                 for line in lines[1:]:
                     page_url, cookie_banner = line.split(",")

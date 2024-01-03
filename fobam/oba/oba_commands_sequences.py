@@ -47,6 +47,7 @@ def control_site_visit_sequence(
                 timeout=wait_time + 60,
                 index=next_site_rank,
                 choice=cookie_banner_action,
+                result_csv_file_name=banner_results_csv_name
             ),
             timeout=wait_time + 120,
         )
@@ -92,6 +93,7 @@ def individual_training_visit_sequence(
                 index=next_site_rank,
                 timeout=sleep + 120,
                 choice=cookie_banner_action,
+                result_csv_file_name=banner_results_csv_name,
             ),
             timeout=sleep + 180,
         )
@@ -168,7 +170,7 @@ def get_cookie_banner_visit_sequences(
                 sleep=time_for_user,
                 index=next_site_rank,
                 timeout=time_for_user + 120,
-                choice=1,
+                choice=2,
                 result_csv_file_name=banner_results_csv_name,
             ),
             timeout=time_for_user + 180,
