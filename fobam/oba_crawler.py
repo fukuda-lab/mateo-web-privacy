@@ -63,6 +63,7 @@ class OBAMeasurementExperiment:
         self.fresh_experiment = fresh_experiment
         self.use_custom_pages = use_custom_pages
         self.cookie_banner_action = cookie_banner_action
+        # Use experiment name here?
         self.banner_results_filename = f"./datadir/cookie_banner_results.csv"
 
         # Sites where ads could be captured from

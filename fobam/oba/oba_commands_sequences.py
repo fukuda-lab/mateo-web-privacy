@@ -19,6 +19,7 @@ def control_site_visit_sequence(
     next_site_rank: str = 0,
     clean_run: bool = False,
     cookie_banner_action: int = 0,
+    banner_results_csv_name = "./datadir/cookie_banner_results.csv",
 ):
     """Returns a command sequence that makes a clean run for a given control_site"""
 
@@ -67,6 +68,7 @@ def individual_training_visit_sequence(
     sleep: int = 10,
     creation: bool = False,
     cookie_banner_action: int = 0,
+    banner_results_csv_name = "./datadir/cookie_banner_results.csv",
 ):
     """Visits one training_site"""
 
