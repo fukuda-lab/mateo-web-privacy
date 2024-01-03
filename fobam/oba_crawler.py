@@ -172,6 +172,7 @@ class OBAMeasurementExperiment:
             save_or_load_profile = "load"
             # TODO: Uncomment this and delete the one above
             experiment_json = self._read_experiment_config_json()
+            self.cookie_banner_action = experiment_json["cookie_banner_action"]
             self.pages_categorized = experiment_json["pages_categorized"]
             self.training_pages = experiment_json[
                 "custom_pages_list"
@@ -331,10 +332,10 @@ class OBAMeasurementExperiment:
 
             successful_run_message = f"Successful run finished after "
             self._write_cleanup_message(successful_run_message)
-        except:
+        except Exception as exc:
             # TODO: Implement that if error is caught and the crawling has been running for long, save the profile before closing to not lose the data saved in SQLite of that run
             error_run_message = f"Error during run after "
-            self._write_cleanup_message(error_run_message)
+            self._write_cleanup_message(error_run_message, exception_message = exc)
 
     @staticmethod
     def signal_handler(sig, frame):
@@ -343,7 +344,7 @@ class OBAMeasurementExperiment:
         instance.signal_cleanup()
         sys.exit(0)
 
-    def _write_cleanup_message(self, log_message_phrase):
+    def _write_cleanup_message(self, log_message_phrase, exception_message = ""):
         """Private method to be called when the experiment is terminated writing the runtime to the runtime_log.txt file"""
         runtime_seconds = time.time() - self.start_time
         hours, remainder = divmod(runtime_seconds, 3600)
@@ -351,7 +352,7 @@ class OBAMeasurementExperiment:
         runtime_string = f"{int(hours)}:{int(minutes)}:{int(seconds)}"
         log_message = f"{log_message_phrase} {runtime_string}.\n"
         with open(self.data_dir + "runtime_log.txt", "a") as f:
-            f.write(log_message)
+            f.write(f"{log_message}\n{exception_message}")
 
     def signal_cleanup(self):
         log_message = f"Terminating signal received after "
