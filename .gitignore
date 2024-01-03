@@ -1,16 +1,12 @@
 # Large files
-openwpm/datadir/*
-!openwpm/datadir/.gitkeep
-openwpm/oba/datadir/*
-!openwpm/oba/datadir/.gitkeep
-openwpm/oba/experiments/*
-!openwpm/oba/experiments/.gitkeep
-# !openwpm/datadir/browser_profiles
-# openwpm/datadir/browser_profiles/*
-# !openwpm/datadir/screenshots
-# openwpm/datadir/screenshots/*
-# !openwpm/datadir/sources
-# openwpm/datadir/sources/*
+fobam/datadir/*
+!fobam/datadir/.gitkeep
+fobam/oba/datadir_training_pages/*
+!fobam/oba/datadir_training_pages/.gitkeep
+fobam/oba/datadir_training_pages/_crawls/*
+!fobam/oba/datadir_training_pages/_crawls/.gitkeep
+fobam/logs/*
+!fobam/logs/.gitkeep
 
 # DS_Store
 .DS_Store

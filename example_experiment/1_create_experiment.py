@@ -12,7 +12,7 @@ oba_cookie_banner_experiment_with_categorization = {
         "cookie_banner_action": 1,
         "tranco_pages_params": {
             "updated": True,
-            "size": 100000,
+            "size": 100,
             },
         # We need valid 'webshrinker_credentials' to be able to categorize.
         "webshrinker_credentials": {"api_key": API_KEY, "secret_key": SECRET_KEY},
@@ -20,5 +20,5 @@ oba_cookie_banner_experiment_with_categorization = {
 
 
 
-from openwpm.oba_crawler import OBAMeasurementExperiment
+from fobam.oba_crawler import OBAMeasurementExperiment
 experiment = OBAMeasurementExperiment(**oba_cookie_banner_experiment_with_categorization)
