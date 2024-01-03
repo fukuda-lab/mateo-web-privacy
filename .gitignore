@@ -2,6 +2,9 @@
 fobam/datadir/*
 !fobam/datadir/.gitkeep
 fobam/oba/datadir_training_pages/*
+!fobam/oba/datadir_training_pages/V929N-10000.sqlite
+!fobam/oba/datadir_training_pages/N7WQW-5000.sqlite
+!fobam/oba/datadir_training_pages/83JJV-1000.sqlite
 !fobam/oba/datadir_training_pages/.gitkeep
 fobam/oba/datadir_training_pages/_crawls/*
 !fobam/oba/datadir_training_pages/_crawls/.gitkeep
