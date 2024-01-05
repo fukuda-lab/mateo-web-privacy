@@ -104,7 +104,7 @@ def individual_training_visit_sequence(
 
 
 def training_visits_sequence(
-    training_sites: List[str], next_site_rank: int, cookie_banner_action: int = 0
+    training_sites: List[str], next_site_rank: int, cookie_banner_action: int = 0, banner_results_csv_name = "./datadir/cookie_banner_results.csv",
 ):
     command_sequences = []
     sites_remaining = training_sites.copy()
@@ -122,6 +122,7 @@ def training_visits_sequence(
                 site_to_visit,
                 next_site_rank,
                 wait_time,
+                banner_results_csv_name=banner_results_csv_name,
                 cookie_banner_action=cookie_banner_action,
             )
         )
@@ -135,8 +136,8 @@ def training_visits_sequence(
 def get_cookie_banner_visit_sequences(
     training_pages: list,
     control_pages: list = [],
-    time_for_user: int = 30,
-    banner_results_csv_name="./datadir/cookie_banner_results.csv",
+    time_for_user: int = 15,
+    banner_results_csv_name="./datadir/cookie_banner_results.csv", 
 ):
     """One by one, visits all of the training pages and control pages."""
     command_sequences = []

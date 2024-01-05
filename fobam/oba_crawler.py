@@ -474,7 +474,7 @@ class OBAMeasurementExperiment:
                     training_sample,
                     next_site_rank,
                     cookie_banner_action=self.cookie_banner_action,
-                    result_csv_file_name=self.banner_results_filename,
+                    banner_results_csv_name=self.banner_results_filename,
                 )
             else:
                 # CONTROL
@@ -484,7 +484,7 @@ class OBAMeasurementExperiment:
                         random.choice(self.control_pages),
                         next_site_rank,
                         cookie_banner_action=self.cookie_banner_action,
-                        result_csv_file_name=self.banner_results_filename,
+                        banner_results_csv_name=self.banner_results_filename,
                     )
                 ]
             next_site_rank += len(sequence_list)
@@ -554,7 +554,7 @@ class OBAMeasurementExperiment:
             error_run_message = f"Error during run after "
             self._write_cleanup_message(error_run_message)
 
-    def write_bannerclick_finding_on_pages(self, page_urls: str):
+    def write_bannerclick_finding_on_pages(self, page_urls: list):
         """With an openWPM crawler, visits a set of pages from the training_pages_db selected and updates with the presence / abscence of cookie banner accordingly."""
 
         def _validate_urls_in_db(page_urls):

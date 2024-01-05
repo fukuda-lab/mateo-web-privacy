@@ -86,6 +86,7 @@ class TrainingPagesHandler:
         self.db_path = os.path.join(
             script_dir, "datadir_training_pages", self.sqlite_db_name
         )
+        self._create_db_if_not_exists()
 
     @staticmethod
     def retrieve_tranco_top_list(
