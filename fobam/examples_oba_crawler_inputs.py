@@ -131,7 +131,6 @@ def create_cookie_banner_experiment_example():
         },
         # If use_custom_pages==True and custom_pages_params['categorize_pages'] == True, we need 'webshrinker_credentials'.
         "webshrinker_credentials": {"api_key": API_KEY, "secret_key": SECRET_KEY},
-        "tranco_pages_params": None,  # Not required for this case
     }
     experiment_handler = OBAMeasurementExperiment(**oba_custom_cookie_banner_pages)
     return experiment_handler

@@ -14,6 +14,7 @@ from oba.enums import (
     CustomPagesParams,
     GenericQueries,
     TrancoPagesParams,
+    WebShrinkerCredentials
 )
 from oba.oba_commands_sequences import (
     control_site_visit_sequence,
@@ -42,12 +43,12 @@ class OBAMeasurementExperiment:
         self,
         experiment_name: str,
         fresh_experiment: bool,
+        cookie_banner_action: Literal[0, 1, 2] = 0,
         use_custom_pages: bool = False,
         # 0 do nothing, 1 accept, 2 reject
-        cookie_banner_action: Literal[0, 1, 2] = 0,
         tranco_pages_params: TrancoPagesParams = None,
         custom_pages_params: CustomPagesParams = None,
-        webshrinker_credentials: dict[str, str] = None,
+        webshrinker_credentials: WebShrinkerCredentials = None,
     ):
 
         self.start_time = time.time()
@@ -61,7 +62,7 @@ class OBAMeasurementExperiment:
         self.experiment_name = experiment_name
         self.data_dir = f"./datadir/{self.experiment_name}/"
         self.fresh_experiment = fresh_experiment
-        self.use_custom_pages = use_custom_pages
+        self.custom_pages = use_custom_pages
         self.cookie_banner_action = cookie_banner_action
         # Use experiment name here?
         self.banner_results_filename = f"./datadir/cookie_banner_results.csv"
@@ -76,9 +77,6 @@ class OBAMeasurementExperiment:
             "http://www.weatherbase.com/",
             # "http://cnn.com",
             # "http://usatoday.com",
-            # # "http://accuweather.com",
-            # # "http://wunderground.com",
-            # # "http://myforecast.com",
             # "http://cbsnews.com",
             # "http://apnews.com",
             # "http://reuters.com"
@@ -176,18 +174,17 @@ class OBAMeasurementExperiment:
             experiment_json = self._read_experiment_config_json()
             self.cookie_banner_action = experiment_json["cookie_banner_action"]
             self.pages_categorized = experiment_json["pages_categorized"]
-            self.training_pages = experiment_json[
-                "custom_pages_list"
-            ]  # Reads None if doesn't use a custom_pages_list with categorization==False
+            self.training_pages = experiment_json["training_pages_list"]
             self.training_pages_handler = (
                 TrainingPagesHandler(
-                    list_id=experiment_json["training_pages_id"],
+                    list_id=experiment_json["training_pages_handler"]["list_id"],
                     webshrinker_credentials=webshrinker_credentials,
-                    n_pages=experiment_json["n_pages"],
+                    n_pages=experiment_json["training_pages_handler"]["n_pages"],
                 )
-                if experiment_json["training_pages_id"]
+                if experiment_json["training_pages_handler"]
                 else None
             )
+            self.custom_pages = experiment_json["custom_pages"]
 
         # Create or connect browser profile
         self.NUM_BROWSERS = 2
@@ -205,9 +202,10 @@ class OBAMeasurementExperiment:
         # Catch Signals
         signal.signal(signal.SIGINT, self.signal_handler)
         signal.signal(signal.SIGTERM, self.signal_handler)
+        
 
-    def set_training_pages_by_category(self, category: str = ""):
-        """Sets the training pages for the experiment according to the category given. If no category is given, the user is prompted to pick one from the supported categories."""
+    def set_training_pages_by_category(self, category: str, size: int = 10, confident: bool = None, cookie_banner_found: bool = None):
+        """ Not needed in case of uncategorized custom pages. Sets the training pages for the experiment according to the category given. If no category is given, the user is prompted to pick one from the supported categories."""
         if not self.pages_categorized:
             # Case for custom_pages_list that was not categorized
             raise RuntimeError(
@@ -227,7 +225,6 @@ class OBAMeasurementExperiment:
                 supported_categories.append(supported_category)
                 if supported_category not in tier_1_categories:
                     tier_2_categories.append(supported_category)
-        # supported_categories = [IAB_CATEGORIES[key][key] for key in IAB_CATEGORIES.keys()]
         if not category or category not in supported_categories:
             category_input_message = (
                 f"Pick a category from the supported categories: \n \n"
@@ -237,15 +234,13 @@ class OBAMeasurementExperiment:
             category = input(category_input_message)
             while category not in supported_categories:
                 category = input(f"Invalid category. \n" + category_input_message)
-        # if category not in supported_categories:
-        #     raise ValueError(f'Category "{category}" is not supported')
+        if category not in supported_categories:
+            raise ValueError(f'Category "{category}" is not supported')
 
         # TODO: extend taxonomy
-        self.training_pages = (
-            self.training_pages_handler.get_training_pages_by_category(
-                category, taxonomy_type="iabv1"
-            )
-        )
+        training_pages_dict = self.training_pages_handler.get_training_pages_by_category(size, confident, cookie_banner_found)
+        self.training_pages = training_pages_dict[category]['pages_urls']
+        
         print(f"Training pages set from {category}")
         return
 
@@ -420,21 +415,19 @@ class OBAMeasurementExperiment:
             # File doesn't exist, create a new JSON
             experiment_json = {
                 "experiment_name": self.experiment_name,
-                "pages_categorized": self.pages_categorized,  # If False, we use the custom_pages_list in stead of a TrainingPagesHandler with the 'training_pages_id' when loading
-                # Having self.training_pages_handler=None means that we are using custom_pages_list without categorization so it's the value for the boolean above when it corresponds
-                "custom_pages_list": self.training_pages
-                if not self.training_pages_handler
-                else [],
-                "training_pages_id": self.training_pages_handler.list_id
-                if self.training_pages_handler
-                else None,
-                # 0 do nothing, 1 accept, 2 reject
                 "cookie_banner_action": self.cookie_banner_action,
-                # Important only when using tranco
-                "n_pages": self.training_pages_handler.n_pages
-                if self.training_pages_handler
-                else None,
+                "training_pages_list": self.training_pages,
                 "browser_ids": {"oba": [], "clear": []},
+                "pages_categorized": self.pages_categorized,
+                "custom_pages": self.custom_pages,
+                # We will keep track of the training_pages_handler.list_id to be able to load it later
+                "training_pages_handler": {
+                    "list_id": self.training_pages_handler.list_id,
+                    # Important only when using tranco
+                    "n_pages": self.training_pages_handler.n_pages,
+                }
+                    if self.training_pages_handler
+                    else None,
             }
 
         # Append browser ids to the corresponding lists

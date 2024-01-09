@@ -10,7 +10,7 @@ from tqdm import tqdm
 from tranco import Tranco
 
 from .categorizer import Categorizer
-from .enums import IAB_CATEGORIES
+from .enums import IAB_CATEGORIES, TrainingPagesQueries
 from .oba_commands_sequences import get_cookie_banner_visit_sequences
 
 # sys.path.append("../openwpm")
@@ -54,7 +54,7 @@ class TrainingPagesHandler:
             self.categorizer = None
         self.custom_list = custom_list
 
-        # Case specific training pages are provided by the user
+        # Case custom pages
         if custom_list:
             if not custom_pages_list or not list_id:
                 raise ValueError(
@@ -65,15 +65,9 @@ class TrainingPagesHandler:
 
         # Cases using tranco
         else:
-            # if list_id:
             self.tranco = TrainingPagesHandler.retrieve_tranco_top_list(
                 list_id=list_id, updated=updated_tranco
             )
-            # elif list_date:
-            # self.tranco = TrainingPagesHandler.retrieve_tranco_top_list(list_date=list_date)
-            # else:
-            # If neither list_id and list_date are given, we will use the list and db included in the repository
-            # self.tranco = TrainingPagesHandler.retrieve_tranco_top_list(list_id='X53KN')
 
             self.training_pages_list = self.tranco.top(n_pages)
             self.list_id = self.tranco.list_id
@@ -86,7 +80,6 @@ class TrainingPagesHandler:
         self.db_path = os.path.join(
             script_dir, "datadir_training_pages", self.sqlite_db_name
         )
-        self._create_db_if_not_exists()
 
     @staticmethod
     def retrieve_tranco_top_list(
@@ -105,17 +98,7 @@ class TrainingPagesHandler:
             # Get latest
             tranco_list = t.list()
         if updated == False:
-            # if not list_id and not list_date: # Missing info
-            #     raise ValueError('A value for list_date or list_id arguments (only one of them) is required when getting a non updated version of the list')
-            # elif not list_id and list_date: # Date provided
-            #     tranco_list = t.list(date=list_date)
-            # elif list_id and not list_date: # list_id provided
-            #     tranco_list = t.list(list_id=list_id)
-            # else:
-            # try:
             tranco_list = t.list(list_id=list_id)
-            # except:
-            # tranco_list = t.list(date=list_date)
 
         return tranco_list
 
@@ -281,110 +264,46 @@ class TrainingPagesHandler:
             _async_categorize(self.db_path, request_rate, uncategorized_training_pages)
         )
 
-    def get_training_pages_by_category(
-        self, category: str, taxonomy_type: str = "iabv1"
+
+    def get_training_pages_grouped_by_category(
+        self, k: int = 10, confident: bool = None, cookie_banner_found: bool = None
     ):
-        # Check for valid taxonomy type
-        if taxonomy_type not in ["iabv1", "webshrinker"]:
-            raise ValueError(
-                "Invalid taxonomy type. Accepted values are 'iabv1' or 'webshrinker'"
-            )
-
-        # Check for valid category given the taxonomy
-        matched = False
-        if taxonomy_type == "iabv1":
-            for iabv1_dict in IAB_CATEGORIES.values():
-                # The name of the tier_1 categories are stored in a value with a key with the same id but nested
-                for tier_2_category_name in iabv1_dict.values():
-                    if category == tier_2_category_name:
-                        matched = True
-                        break
-        elif taxonomy_type == "webshrinker":
-            for taxonomy_value in IAB_CATEGORIES.values():
-                if category == taxonomy_value:
-                    matched = True
-                    break
-        if matched == False:
-            raise ValueError(
-                "Invalid category. Check https://docs.webshrinker.com/v3/iab-website-categories.html#tier-1-and-tier-2-categories"
-            )
-
+        """Returns at most the k most popular pages by category given they are already categorized in the database (by id). Can be filtered by confident and cookie_banner_found"""
         print(self.db_path)
-        # START FETCH
-        # Create a connection and cursor
-        conn = sqlite3.connect(self.db_path)
-        cursor = conn.cursor()
-
-        # Fetch the URLs based on category and taxonomy type
-        cursor.execute(
-            """
-        SELECT training_page_url 
-        FROM RetrievedCategories 
-        WHERE category = ? AND taxonomy = ?
-        """,
-            (category, taxonomy_type),
-        )
-
-        # Fetch all rows
-        rows = cursor.fetchall()
-
-        # Close connection
-        conn.close()
-
-        # Extract URLs from rows
-        urls = [row[0] for row in rows]
-
-        return urls
-
-    def get_most_popular_pages_by_category(
-        self, k: int = 10, confident: bool = False, cookie_banner_found: bool = False
-    ):
-        """Returns at most the k most popular pages by category in the database (by id). Can be filtered by confident and cookie_banner_found"""
+        
         # CONNECT TO DATABASE
         confident = 1 if confident else 0
         cookie_banner_found = 1 if cookie_banner_found else 0
 
         conn = sqlite3.connect(self.db_path)
         cursor = conn.cursor()
-
-        # FETCH
+        
+        # Case both filters
+        if cookie_banner_found != None and confident != None:
+            query = TrainingPagesQueries.SelectTrainingPagesWithCategoryBothFilters
+            
+        # Case confident filter but no cookie_banner
+        elif cookie_banner_found == None and confident != None:
+            query = TrainingPagesQueries.SelectTrainingPagesWithCategoryConfidentFilter
+            
+        # Case cookie banner filter but no confident
+        elif cookie_banner_found != None and confident == None:
+            query = TrainingPagesQueries.SelectTrainingPagesWithCategoryCookieBannerFilter
+            
+        # Case no filter
+        elif cookie_banner_found == None and confident == None:
+            query = TrainingPagesQueries.SelectTrainingPagesWithCategoryNoFilter
+        
+        # Execute query
         cursor.execute(
-            """
-            WITH FilteredPages AS (
-                SELECT 
-                    RC.category,
-                    TP.id,
-                    TP.page_url,
-                    ROW_NUMBER() OVER (PARTITION BY RC.category ORDER BY TP.id ASC) as rn
-                FROM 
-                    RetrievedCategories RC
-                JOIN 
-                    TrainingPages TP ON RC.training_page_id = TP.id
-                WHERE 
-                    RC.confident = :confident
-                AND
-                    TP.cookie_banner_found = :cookie_banner_found
-            )
-            SELECT 
-                category,
-                SUM(CASE WHEN rn <= :k THEN 1 ELSE 0 END) AS top_lowest_id_pages,
-                GROUP_CONCAT(CASE WHEN rn <= :k THEN page_url END, ', ') AS top_page_urls,
-                COUNT(id) AS total_pages
-            FROM 
-                FilteredPages
-            WHERE 
-                rn <= :k
-            GROUP BY 
-                category
-            ORDER BY
-                COUNT(id) DESC;
-            """,
+            query,
             {
-                "confident": confident,
-                "k": k,
-                "cookie_banner_found": cookie_banner_found,
-            },
+            "k": k,
+            "confident": confident,
+            "cookie_banner_found": cookie_banner_found,
+            }
         )
+        
         rows = cursor.fetchall()
         # Close connection
         conn.close()
@@ -393,8 +312,8 @@ class TrainingPagesHandler:
         categories_dict = {}
         for row in rows:
             categories_dict[row[0]] = {
-                "page_urls": row[2].strip().split(", "),
-                "page_ids": row[1],
+                "pages_urls": row[2].strip().split(", "),
+                "pages_ids": [int(training_page_id) for training_page_id in row[1].strip().split(", ")],
             }
 
         return categories_dict

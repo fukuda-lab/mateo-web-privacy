@@ -1,6 +1,10 @@
 from enum import Enum
 from typing import TypedDict
 
+class WebShrinkerCredentials(TypedDict):
+    api_key: str
+    secret_key: str
+
 
 class TrancoPagesParams(TypedDict):
     updated: bool
@@ -10,11 +14,6 @@ class TrancoPagesParams(TypedDict):
 class CustomPagesParams(TypedDict):
     categorize_pages: bool
     custom_pages_list: int
-
-
-class WebshrinkerCredentials(TypedDict):
-    api_key: str
-    secret_key: str
 
 
 class GenericQueries:
@@ -73,6 +72,121 @@ class TrainingPagesQueries:
     """Queries for the TrainingPages tables"""
 
     SelectIdQuery = "SELECT id FROM TrainingPages WHERE page_url=?"
+    SelectTrainingPagesWithCategoryNoFilter = """
+            WITH FilteredPages AS (
+                SELECT 
+                    RC.category,
+                    TP.id,
+                    TP.page_url,
+                    ROW_NUMBER() OVER (PARTITION BY RC.category ORDER BY TP.id ASC) as rn
+                FROM 
+                    RetrievedCategories RC
+                JOIN 
+                    TrainingPages TP ON RC.training_page_id = TP.id
+            )
+            SELECT 
+                category,
+				GROUP_CONCAT(CASE WHEN rn <= :k THEN id END, ', ') AS top_page_ids,
+                GROUP_CONCAT(CASE WHEN rn <= :k THEN page_url END, ', ') AS top_page_urls,
+                COUNT(id) AS total_pages
+            FROM 
+                FilteredPages
+            WHERE 
+                rn <= :k
+            GROUP BY 
+                category
+            ORDER BY
+                COUNT(id) DESC;
+            """
+
+    SelectTrainingPagesWithCategoryConfidentFilter = """
+            WITH FilteredPages AS (
+                SELECT 
+                    RC.category,
+                    TP.id,
+                    TP.page_url,
+                    ROW_NUMBER() OVER (PARTITION BY RC.category ORDER BY TP.id ASC) as rn
+                FROM 
+                    RetrievedCategories RC
+                JOIN 
+                    TrainingPages TP ON RC.training_page_id = TP.id
+                WHERE 
+                    RC.confident = :confident
+            )
+            SELECT 
+                category,
+				GROUP_CONCAT(CASE WHEN rn <= :k THEN id END, ', ') AS top_page_ids,
+                GROUP_CONCAT(CASE WHEN rn <= :k THEN page_url END, ', ') AS top_page_urls,
+                COUNT(id) AS total_pages
+            FROM 
+                FilteredPages
+            WHERE 
+                rn <= :k
+            GROUP BY 
+                category
+            ORDER BY
+                COUNT(id) DESC;
+            """
+            
+    SelectTrainingPagesWithCategoryConfidentFilter = """
+            WITH FilteredPages AS (
+                SELECT 
+                    RC.category,
+                    TP.id,
+                    TP.page_url,
+                    ROW_NUMBER() OVER (PARTITION BY RC.category ORDER BY TP.id ASC) as rn
+                FROM 
+                    RetrievedCategories RC
+                JOIN 
+                    TrainingPages TP ON RC.training_page_id = TP.id
+                WHERE 
+                    TP.cookie_banner_found =  :cookie_banner_found
+            )
+            SELECT 
+                category,
+				GROUP_CONCAT(CASE WHEN rn <= :k THEN id END, ', ') AS top_page_ids,
+                GROUP_CONCAT(CASE WHEN rn <= :k THEN page_url END, ', ') AS top_page_urls,
+                COUNT(id) AS total_pages
+            FROM 
+                FilteredPages
+            WHERE 
+                rn <= :k
+            GROUP BY 
+                category
+            ORDER BY
+                COUNT(id) DESC;
+            """
+
+    SelectTrainingPagesWithCategoryBothFilters = """
+            WITH FilteredPages AS (
+                SELECT 
+                    RC.category,
+                    TP.id,
+                    TP.page_url,
+                    ROW_NUMBER() OVER (PARTITION BY RC.category ORDER BY TP.id ASC) as rn
+                FROM 
+                    RetrievedCategories RC
+                JOIN 
+                    TrainingPages TP ON RC.training_page_id = TP.id
+                WHERE 
+                    RC.confident = :confident
+                AND
+                    TP.cookie_banner_found =  :cookie_banner_found
+            )
+            SELECT 
+                category,
+				GROUP_CONCAT(CASE WHEN rn <= :k THEN id END, ', ') AS top_page_ids,
+                GROUP_CONCAT(CASE WHEN rn <= :k THEN page_url END, ', ') AS top_page_urls,
+                COUNT(id) AS total_pages
+            FROM 
+                FilteredPages
+            WHERE 
+                rn <= :k
+            GROUP BY 
+                category
+            ORDER BY
+                COUNT(id) DESC;
+            """
 
 
 class RetrievedCategoriesQueries:
