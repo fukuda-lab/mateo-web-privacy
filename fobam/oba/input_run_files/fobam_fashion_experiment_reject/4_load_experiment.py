@@ -5,4 +5,4 @@ fashion_experiment = OBAMeasurementExperiment(
     False,
 )
 
-fashion_experiment.start(8)
+fashion_experiment.start(6)

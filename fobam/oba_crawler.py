@@ -14,7 +14,7 @@ from oba.enums import (
     CustomPagesParams,
     GenericQueries,
     TrancoPagesParams,
-    WebShrinkerCredentials
+    WebShrinkerCredentials,
 )
 from oba.oba_commands_sequences import (
     control_site_visit_sequence,
@@ -37,6 +37,7 @@ DEFAULT_N_PAGES = 10000
 # LATEST_CATEGORIZED_TRANCO_LIST_ID = "N7WQW" #Previous
 # DEFAULT_N_PAGES = 5000 # Previous
 
+
 # TODO: init with prints?
 class OBAMeasurementExperiment:
     def __init__(
@@ -50,7 +51,6 @@ class OBAMeasurementExperiment:
         custom_pages_params: CustomPagesParams = None,
         webshrinker_credentials: WebShrinkerCredentials = None,
     ):
-
         self.start_time = time.time()
 
         # Setup transversal values
@@ -88,13 +88,15 @@ class OBAMeasurementExperiment:
         # Browser profile validation
         if fresh_experiment and Path(self.data_dir).exists():
             raise FileExistsError(
-                f"Experiment with that name already exists. Try a different name or delete the experiment folder in datadir/{experiment_name}"
+                "Experiment with that name already exists. Try a different name or"
+                f" delete the experiment folder in datadir/{experiment_name}"
             )
 
         if fresh_experiment:
             if use_custom_pages and not custom_pages_params:
                 raise ValueError(
-                    "When using custom training pages, values for the custom_pages_params argument must be included"
+                    "When using custom training pages, values for the"
+                    " custom_pages_params argument must be included"
                 )
 
             if (not use_custom_pages and tranco_pages_params["updated"]) or (
@@ -102,7 +104,8 @@ class OBAMeasurementExperiment:
             ):
                 if not webshrinker_credentials:
                     raise ValueError(
-                        "Since categorization is necessary, valid WebShrinker API_KEY and SECRET_KEY are needed"
+                        "Since categorization is necessary, valid WebShrinker API_KEY"
+                        " and SECRET_KEY are needed"
                     )
 
             # Get training pages to be used
@@ -121,7 +124,8 @@ class OBAMeasurementExperiment:
                     )
                     # TODO: Add taxonomy and request_rate parameters.
                     print(
-                        "Starting page categorization... this could take several minutes"
+                        "Starting page categorization... this could take several"
+                        " minutes"
                     )
                     self.training_pages_handler.categorize_training_pages()
                     self.pages_categorized = True
@@ -142,13 +146,16 @@ class OBAMeasurementExperiment:
                         updated_tranco=True,
                         categorize=True,
                         webshrinker_credentials=webshrinker_credentials,
-                        n_pages=tranco_pages_params["size"]
-                        if "size" in tranco_pages_params.keys()
-                        and tranco_pages_params["size"]
-                        else DEFAULT_N_PAGES,
+                        n_pages=(
+                            tranco_pages_params["size"]
+                            if "size" in tranco_pages_params.keys()
+                            and tranco_pages_params["size"]
+                            else DEFAULT_N_PAGES
+                        ),
                     )
                     print(
-                        "Starting page categorization... this could take several minutes"
+                        "Starting page categorization... this could take several"
+                        " minutes"
                     )
                     self.training_pages_handler.categorize_training_pages()
                     self.pages_categorized = True
@@ -202,10 +209,16 @@ class OBAMeasurementExperiment:
         # Catch Signals
         signal.signal(signal.SIGINT, self.signal_handler)
         signal.signal(signal.SIGTERM, self.signal_handler)
-        
 
-    def set_training_pages_by_category(self, category: str, size: int = 10, confident: bool = None, cookie_banner_found: bool = None):
-        """ Not needed in case of uncategorized custom pages. Sets the training pages for the experiment according to the category given. If no category is given, the user is prompted to pick one from the supported categories."""
+    def set_training_pages_by_category(
+        self,
+        category: str,
+        size: int = 10,
+        confident: bool = None,
+        cookie_banner_found: bool = None,
+    ):
+        # TODO: run to fill cookie_banner_found column in cached tranco db? (10k pages)
+        """Not needed in case of uncategorized custom pages. Sets the training pages for the experiment according to the category given. If no category is given, the user is prompted to pick one from the supported categories."""
         if not self.pages_categorized:
             # Case for custom_pages_list that was not categorized
             raise RuntimeError(
@@ -227,9 +240,12 @@ class OBAMeasurementExperiment:
                     tier_2_categories.append(supported_category)
         if not category or category not in supported_categories:
             category_input_message = (
-                f"Pick a category from the supported categories: \n \n"
-                f"Tier 1 categories (general categories, which are more likely to have been confidently assigned to the pages and have more pages assigned to them): \n\n{tier_1_categories} \n \n"
-                f"Tier 2 categories (more specific categories, set to a page only after it was set with a tier 1 category): \n\n{tier_2_categories})\n"
+                "Pick a category from the supported categories: \n \nTier 1 categories"
+                " (general categories, which are more likely to have been confidently"
+                " assigned to the pages and have more pages assigned to them):"
+                f" \n\n{tier_1_categories} \n \nTier 2 categories (more specific"
+                " categories, set to a page only after it was set with a tier 1"
+                f" category): \n\n{tier_2_categories})\n"
             )
             category = input(category_input_message)
             while category not in supported_categories:
@@ -238,9 +254,13 @@ class OBAMeasurementExperiment:
             raise ValueError(f'Category "{category}" is not supported')
 
         # TODO: extend taxonomy
-        training_pages_dict = self.training_pages_handler.get_training_pages_by_category(size, confident, cookie_banner_found)
-        self.training_pages = training_pages_dict[category]['pages_urls']
-        
+        training_pages_dict = (
+            self.training_pages_handler.get_training_pages_by_category(
+                size, confident, cookie_banner_found
+            )
+        )
+        self.training_pages = training_pages_dict[category]["pages_urls"]
+
         print(f"Training pages set from {category}")
         return
 
@@ -312,7 +332,6 @@ class OBAMeasurementExperiment:
                 SQLiteStorageProvider(Path(self.data_dir + "crawl-data.sqlite")),
                 None,
             ) as manager:
-
                 self._get_and_create_experiment_config_json(manager)
 
                 if self.fresh_experiment:
@@ -332,7 +351,7 @@ class OBAMeasurementExperiment:
         except Exception as exc:
             # TODO: Implement that if error is caught and the crawling has been running for long, save the profile before closing to not lose the data saved in SQLite of that run
             error_run_message = f"Error during run after "
-            self._write_cleanup_message(error_run_message, exception_message = exc)
+            self._write_cleanup_message(error_run_message, exception_message=exc)
 
     @staticmethod
     def signal_handler(sig, frame):
@@ -341,7 +360,7 @@ class OBAMeasurementExperiment:
         instance.signal_cleanup()
         sys.exit(0)
 
-    def _write_cleanup_message(self, log_message_phrase, exception_message = ""):
+    def _write_cleanup_message(self, log_message_phrase, exception_message=""):
         """Private method to be called when the experiment is terminated writing the runtime to the runtime_log.txt file"""
         runtime_seconds = time.time() - self.start_time
         hours, remainder = divmod(runtime_seconds, 3600)
@@ -421,13 +440,15 @@ class OBAMeasurementExperiment:
                 "pages_categorized": self.pages_categorized,
                 "custom_pages": self.custom_pages,
                 # We will keep track of the training_pages_handler.list_id to be able to load it later
-                "training_pages_handler": {
-                    "list_id": self.training_pages_handler.list_id,
-                    # Important only when using tranco
-                    "n_pages": self.training_pages_handler.n_pages,
-                }
+                "training_pages_handler": (
+                    {
+                        "list_id": self.training_pages_handler.list_id,
+                        # Important only when using tranco
+                        "n_pages": self.training_pages_handler.n_pages,
+                    }
                     if self.training_pages_handler
-                    else None,
+                    else None
+                ),
             }
 
         # Append browser ids to the corresponding lists
@@ -495,7 +516,8 @@ class OBAMeasurementExperiment:
             return experiment_json
         else:
             raise FileNotFoundError(
-                f"Trying to read file in relative path {file_path} which does not exist."
+                f"Trying to read file in relative path {file_path} which does not"
+                " exist."
             )
 
     def crawl_to_reject_cookies_manually(self):
@@ -504,7 +526,8 @@ class OBAMeasurementExperiment:
 
         if not self.fresh_experiment:
             raise RuntimeError(
-                "Experiment must be fresh to crawl to reject cookies manually, it must be done before starting the experiment"
+                "Experiment must be fresh to crawl to reject cookies manually, it must"
+                " be done before starting the experiment"
             )
 
         try:
@@ -515,7 +538,6 @@ class OBAMeasurementExperiment:
                 SQLiteStorageProvider(Path(self.data_dir + "crawl-data.sqlite")),
                 None,
             ) as manager:
-
                 self._get_and_create_experiment_config_json(manager)
 
                 # It is a fresh experiment, so we need to create the folders and create the training browser profile
@@ -524,7 +546,9 @@ class OBAMeasurementExperiment:
                 )
 
                 print(
-                    f"Launching crawler expecting the user to manually reject cookies in the training + control pages... \n Pages to visit {len(self.training_pages) + len(self.control_pages)} \n"
+                    "Launching crawler expecting the user to manually reject cookies"
+                    " in the training + control pages... \n Pages to visit"
+                    f" {len(self.training_pages) + len(self.control_pages)} \n"
                 )
                 # Get all the command sequences to crawl the training pages and control pages
                 reject_cookies_command_sequences = get_cookie_banner_visit_sequences(
@@ -554,14 +578,12 @@ class OBAMeasurementExperiment:
             # Fetch
             conn = sqlite3.connect(self.training_pages_handler.db_path)
             cursor = conn.cursor()
-            cursor.execute(
-                """
+            cursor.execute("""
                 SELECT 
                     page_url 
                 FROM 
                     TrainingPages
-                """
-            )
+                """)
             rows = cursor.fetchall()
             conn.close()
 
@@ -629,7 +651,6 @@ class OBAMeasurementExperiment:
                 SQLiteStorageProvider(Path(crawl_db_path)),
                 None,
             ) as manager:
-
                 bannerclick_cookie_banner_command_sequences = (
                     get_cookie_banner_visit_sequences(
                         training_pages=page_urls,

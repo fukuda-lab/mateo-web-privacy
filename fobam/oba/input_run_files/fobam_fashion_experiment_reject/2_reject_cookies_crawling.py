@@ -13,16 +13,17 @@ popular_sites_dict = (
 )
 
 fashion_sites_with_cookie_banner = popular_sites_dict["Fashion"]["page_urls"]
+print(fashion_sites_with_cookie_banner)
 
-fashion_experiment = OBAMeasurementExperiment(
-    "fashion_experiment_reject",
-    True,
-    cookie_banner_action=2,
-    use_custom_pages=True,
-    custom_pages_params={
-        "categorize_pages": False,
-        "custom_pages_list": fashion_sites_with_cookie_banner,
-    },
-)
+# fashion_experiment = OBAMeasurementExperiment(
+#     "fashion_experiment_reject",
+#     True,
+#     cookie_banner_action=2,
+#     use_custom_pages=True,
+#     custom_pages_params={
+#         "categorize_pages": False,
+#         "custom_pages_list": fashion_sites_with_cookie_banner,
+#     },
+# )
 
-fashion_experiment.crawl_to_reject_cookies_manually()
+# fashion_experiment.crawl_to_reject_cookies_manually()
